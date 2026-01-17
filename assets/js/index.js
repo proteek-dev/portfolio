@@ -60,10 +60,11 @@
     const q3 = { x: x - hx,  y: y + hy };
 
     // Face alphas (keep subtle)
-    const topA   = 0.55 * a;
-    const leftA  = 0.35 * a;
-    const rightA = 0.45 * a;
-    const edgeA  = 0.18 * a;
+    const topA   = 0.80 * a;
+    const leftA  = 0.55 * a;
+    const rightA = 0.70 * a;
+    const edgeA  = 0.35 * a;
+
 
     // TOP face p0-p1-p2-p3
     ctx.beginPath();
@@ -134,8 +135,8 @@
 
       const speed = strength * rand(0.6, 1.25);
 
-      const size = rand(2, 5);
-      const life = rand(18, 34); // frames-ish feel, we’ll decrement by dt
+      const size = rand(6, 12);
+      const life = rand(35, 70); // frames-ish feel, we’ll decrement by dt
       const rot = rand(0, Math.PI * 2);
       const spin = rand(-0.18, 0.18);
 
@@ -232,7 +233,7 @@
     for (const st of hoverState.values()) {
       if (!st.active) continue;
       // emission: small continuous stream
-      spawnCubelets(st.x, st.y, st.face, 3, 0.55);
+      spawnCubelets(st.x, st.y, st.face, 10, 0.9);
     }
 
     draw(dt);
@@ -304,7 +305,7 @@
       btn.classList.add("disintegrating");
 
       // Stronger burst
-      spawnCubelets(cx, cy, face, 160, 2.2);
+      spawnCubelets(cx, cy, face, 320, 3.0);
       ensureRunning();
 
       // Warp + navigate (slightly longer than hover; feels like “vapor then jump”)
