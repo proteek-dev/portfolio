@@ -195,8 +195,6 @@
       drawIsoCube(ctx, p.x, p.y, p.size, a, tiltX + wobble, tiltY - wobble);
 
     }
-
-    requestAnimationFrame(tick);
   }
 
   // ----- Hover tracking per lens -----
@@ -215,11 +213,17 @@
   }
 
   function ensureRunning() {
-    if (!ticking) {
-      ticking = true;
-      lastT = performance.now();
-      requestAnimationFrame(tick);
+    if (ticking) return;
+    ticking = true;
+    lastT = performance.now();
+    requestAnimationFrame(tick);
+  }
+
+  function anyHoverActive() {
+    for (const st of hoverState.values()) {
+      if (st.active) return true;
     }
+    return false;
   }
 
   function tick(now) {
@@ -239,14 +243,20 @@
     draw(dt);
 
     // stop loop if nothing to do
-    if (particles.length === 0) {
-      let anyHover = false;
-      for (const st of hoverState.values()) {
-        if (st.active) { anyHover = true; break; }
-      }
-      if (!anyHover) ticking = false;
+    if (particles.length === 0 && !anyHoverActive()) {
+      ticking = false;
+      return;
     }
+    requestAnimationFrame(tick);
   }
+
+  // Hidden tab: stop emitting and drop particles; the running tick ends itself
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) return;
+    for (const st of hoverState.values()) st.active = false;
+    particles.length = 0;
+    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+  });
 
   // ----- Wire up faces + click -----
   document.querySelectorAll(".lens").forEach(btn => {

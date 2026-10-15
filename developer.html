@@ -3,7 +3,21 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Developer // Proteek</title>
+  <title>Developer · Proteek Kumar Sanyal</title>
+  <meta name="description" content="Projects by Proteek Kumar Sanyal: SEQ Transit AI, Automated Scheme Research Tool, Maternal Health and Early Outbreak Warning, plus work builds." />
+  <meta name="theme-color" content="#05060a" />
+  <link rel="canonical" href="https://proteek-dev.github.io/portfolio/developer.html" />
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Developer · Proteek Kumar Sanyal" />
+  <meta property="og:description" content="Projects by Proteek Kumar Sanyal: SEQ Transit AI, Automated Scheme Research Tool, Maternal Health and Early Outbreak Warning, plus work builds." />
+  <meta property="og:url" content="https://proteek-dev.github.io/portfolio/developer.html" />
+  <meta property="og:image" content="https://proteek-dev.github.io/portfolio/assets/img/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Proteek Kumar Sanyal, AI Solutions Analyst | Business &amp; Systems Analyst | Data Analyst" />
+  <meta name="twitter:card" content="summary_large_image" />
 
   <link rel="stylesheet" href="assets/css/base.css" />
   <link rel="stylesheet" href="assets/css/mode.css" />
@@ -25,7 +39,7 @@
       <a class="btn" href="looker.html">Looker</a>
       <a class="btn" href="recruiter.html">Recruiter</a>
       <a class="btn" href="persona.html">Persona</a>
-      <a class="btn" href="assets/DataAnaylst_Applicant_Proteek.pdf" target="_blank" rel="noopener">Resume</a>
+      <a class="btn" href="assets/Proteek_Sanyal_Resume.pdf" target="_blank" rel="noopener">Resume</a>
     </div>
   </header>
 
@@ -45,55 +59,90 @@
     </section>
 
     <section class="section">
-      <h2>Selected builds</h2>
+      <h2>Built on my own</h2>
 
       <div class="grid2">
         <article class="panel">
-          <h3>User Liveness Detection (Truuth)</h3>
+          <h3>SEQ Transit AI</h3>
           <p>
-            Integrated liveness detection into an existing app architecture and deployed scalable microservices via AWS SageMaker.
-            Improved detection accuracy and scalability for concurrency.
+            Stop-level delay data for South East Queensland transport is not published anywhere, so I built the sensor first: an EC2 archiver polling the GTFS-Realtime feed every five minutes, giving me 156 million rows across 46 days.
+            An XGBoost regressor on that archive reached a mean absolute error of 1.957 minutes against a 2.486 minute baseline.
+            When it meets an unfamiliar stop, I force the confidence label to Low, because a wrong answer that looks confident is worse than no answer.
+            Deployed on AWS (EC2, RDS, ECR).
           </p>
-          <div class="chips"><span class="chip">AWS SageMaker</span><span class="chip">Microservices</span></div>
+          <div class="chips"><span class="chip">XGBoost</span><span class="chip">GTFS-Realtime</span><span class="chip">AWS EC2 · RDS · ECR</span></div>
+          <div class="cta">
+            <a class="btn" href="https://github.com/proteek-dev/Transit-AI" target="_blank" rel="noopener">View code</a>
+          </div>
         </article>
 
         <article class="panel">
-          <h3>Medical Image Analysis Platform</h3>
+          <h3>Automated Scheme Research Tool</h3>
           <p>
-            CNN-based segmentation/classification/anomaly detection with real-time integration; reduced false positives and improved diagnostic accuracy.
+            Government schemes go unused because the information sits in long PDFs nobody reads. I built a tool that ingests source URLs, summarises eligibility, benefits and application steps, and lets people ask questions of the material.
+            LangChain for document loading, SentenceTransformers for embeddings, FAISS for similarity search, DistilBERT for question answering and a Streamlit chat interface.
+            It runs on free Hugging Face models first, with OpenAI as an optional upgrade.
           </p>
-          <div class="chips"><span class="chip">CNN</span><span class="chip">Docker</span><span class="chip">AWS</span></div>
+          <div class="chips"><span class="chip">LangChain</span><span class="chip">SentenceTransformers</span><span class="chip">FAISS</span><span class="chip">DistilBERT</span><span class="chip">Streamlit</span></div>
+          <div class="cta">
+            <a class="btn" href="https://github.com/proteek-dev/ASRT" target="_blank" rel="noopener">View code</a>
+            <a class="btn" href="https://proteeksanyal.medium.com/end-to-end-llm-projects-using-langchain-openai-huggingface-and-faissv-3a00ce01a273" target="_blank" rel="noopener">Read the write-up</a>
+          </div>
         </article>
 
         <article class="panel">
-          <h3>Evacuation Risk Assessment</h3>
+          <h3>Maternal Health and Early Outbreak Warning</h3>
           <p>
-            Predictive models using logistic regression/trees/forests across geo + health factors; delivered reports and visualizations for stakeholders.
+            A prototype that screens maternal health risk factors and flags unusual spikes in reported community symptoms that might indicate an outbreak.
+            I built it with logistic regression and z-score anomaly detection, because a health worker has to be able to understand why a case was flagged.
+            I documented it as a prototype, not production software.
           </p>
-          <div class="chips"><span class="chip">Python</span><span class="chip">scikit-learn</span><span class="chip">Reporting</span></div>
-        </article>
-
-        <article class="panel">
-          <h3>Sentiment Analysis (BERT)</h3>
-          <p>
-            Deployed a BERT sentiment model as a REST API using Docker + Kubernetes for scalable uptime.
-          </p>
-          <div class="chips"><span class="chip">BERT</span><span class="chip">REST</span><span class="chip">K8s</span></div>
+          <div class="chips"><span class="chip">Logistic regression</span><span class="chip">Z-score anomaly detection</span><span class="chip">Streamlit</span><span class="chip">SQLite</span></div>
+          <div class="cta">
+            <a class="btn" href="https://github.com/proteek-dev/Maternal-Health-Early-Warning" target="_blank" rel="noopener">View code</a>
+            <a class="btn" href="https://proteeksanyal.medium.com/building-ai-for-maternal-health-early-outbreak-warning-open-source-mvp-b2aaf83bc8e3" target="_blank" rel="noopener">Read the write-up</a>
+          </div>
         </article>
       </div>
     </section>
 
     <section class="section">
-      <h2>Independent AI projects</h2>
+      <h2>Built at work</h2>
+      <p class="muted">Production work for employers. The code belongs to them, so these are described, not linked.</p>
+
       <div class="grid2">
-        <div class="panel">
-          <h3>Maternal Health & Early Outbreak Warning</h3>
-          <p>End-to-end predictive pipeline with dashboards for public health monitoring (open-source MVP).</p>
-        </div>
-        <div class="panel">
-          <h3>End-to-End LLM Projects</h3>
-          <p>LangChain + OpenAI + Hugging Face + FAISS walkthrough and best practices.</p>
-        </div>
+        <article class="panel">
+          <h3>User Liveness Detection (Truuth, 2023)</h3>
+          <p>
+            Reviewed the current state of face anti-spoofing research, fine-tuned a MobileNet-based liveness detection model, and integrated it into the live customer-facing identity verification app as microservices on AWS SageMaker.
+          </p>
+          <div class="chips"><span class="chip">MobileNet</span><span class="chip">AWS SageMaker</span><span class="chip">Microservices</span></div>
+        </article>
+
+        <article class="panel">
+          <h3>Medical Image Analysis Platform (Infinite Computer Solutions, 2021)</h3>
+          <p>
+            Built CNN-based models for medical image segmentation, classification and anomaly detection, deployed behind Flask services, orchestrated through AWS SageMaker and integrated in real time with the platform. The models reduced false positives.
+          </p>
+          <div class="chips"><span class="chip">CNN</span><span class="chip">Flask</span><span class="chip">AWS SageMaker</span></div>
+        </article>
+
+        <article class="panel">
+          <h3>Evacuation Risk Assessment (Tetra Soft, 2020–21)</h3>
+          <p>
+            Built predictive models to assess medical and political evacuation risk, and presented the outputs through Power BI for non-technical users. Data processing and workflow automation ran on Azure Data Factory and Databricks.
+          </p>
+          <div class="chips"><span class="chip">Power BI</span><span class="chip">Azure Data Factory</span><span class="chip">Databricks</span></div>
+        </article>
+
+        <article class="panel">
+          <h3>Sentiment Analysis with BERT and OCR Document Parsing (HCL, 2017–20)</h3>
+          <p>
+            Built a BERT-based sentiment analysis model and integrated it into a production voice platform.
+            Designed deep learning and OCR models in Python for automated document parsing, replacing manual data entry, with microservices in ASP.NET and C# handling requests.
+          </p>
+          <div class="chips"><span class="chip">BERT</span><span class="chip">OCR</span><span class="chip">Python</span><span class="chip">ASP.NET</span><span class="chip">C#</span></div>
+        </article>
       </div>
     </section>
 
@@ -106,6 +155,8 @@
         <div class="cta">
           <a class="btn primary" href="mailto:proteeksanyal1994@gmail.com?subject=Build%20with%20me">Email me</a>
           <a class="btn" href="https://github.com/proteek-dev" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/proteeksanyal/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="https://proteeksanyal.medium.com" target="_blank" rel="noopener">Medium</a>
         </div>
       </div>
     </section>

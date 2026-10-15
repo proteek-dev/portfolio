@@ -1,6 +1,6 @@
 # Proteek // Portfolio
 
-A cinematic personal portfolio site for **Proteek Kumar Sanyal** — Data Scientist with 6+ years of experience in ML, analytics, and cloud data engineering.
+A cinematic personal portfolio site for **Proteek Kumar Sanyal** — AI Solutions Analyst | Business & Systems Analyst | Data Analyst with 6 years of experience.
 
 ## Overview
 

@@ -3,7 +3,21 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Persona // Proteek</title>
+  <title>Persona · Proteek Kumar Sanyal</title>
+  <meta name="description" content="A scripted guide to Proteek Kumar Sanyal&#x27;s work. Ask about his roles, skills and projects, answered from his CV." />
+  <meta name="theme-color" content="#05060a" />
+  <link rel="canonical" href="https://proteek-dev.github.io/portfolio/persona.html" />
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Persona · Proteek Kumar Sanyal" />
+  <meta property="og:description" content="A scripted guide to Proteek Kumar Sanyal&#x27;s work. Ask about his roles, skills and projects, answered from his CV." />
+  <meta property="og:url" content="https://proteek-dev.github.io/portfolio/persona.html" />
+  <meta property="og:image" content="https://proteek-dev.github.io/portfolio/assets/img/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Proteek Kumar Sanyal, AI Solutions Analyst | Business &amp; Systems Analyst | Data Analyst" />
+  <meta name="twitter:card" content="summary_large_image" />
 
   <link rel="stylesheet" href="assets/css/base.css" />
   <link rel="stylesheet" href="assets/css/mode.css" />
@@ -352,7 +366,7 @@
     <a class="brand" href="index.html" aria-label="Back to portal">
       <span class="brand-dot"></span>
       <span class="brand-title">PROTEEK <span class="muted">//</span> PERSONA</span>
-      <span class="brand-sub">AI layer</span>
+      <span class="brand-sub">Scripted guide</span>
     </a>
     <div class="top-actions">
       <a class="btn" href="looker.html">Looker</a>
@@ -370,7 +384,7 @@
           <div class="orb" id="orb" aria-hidden="true"></div>
           <div>
             <h2 class="identity-name">Proteek Sanyal</h2>
-            <p class="identity-role">Data Analyst &amp; ML Engineer</p>
+            <p class="identity-role">AI Solutions Analyst · Data Analyst</p>
             <div class="status-row">
               <div class="status-dot" id="statusDot"></div>
               <span id="statusLabel">Online</span>
@@ -392,7 +406,7 @@
           <input
             type="text"
             id="chatInput"
-            placeholder="Ask me anything about Proteek…"
+            placeholder="Ask about Proteek's work…"
             autocomplete="off"
             aria-label="Chat input"
           />
@@ -552,10 +566,13 @@
 
     function pickVoice() {
       const voices = synth.getVoices();
+      const en = voices.filter(v => v.lang.startsWith('en'));
       preferredVoice =
-        voices.find(v => v.name.includes('Google') && v.lang.startsWith('en')) ||
-        voices.find(v => v.lang === 'en-AU') ||
-        voices.find(v => v.lang.startsWith('en-')) ||
+        en.find(v => /male/i.test(v.name) && v.lang === 'en-AU') ||
+        en.find(v => /male/i.test(v.name)) ||
+        en.find(v => ['Google UK English Male', 'Daniel', 'Alex', 'Fred', 'Microsoft David', 'Microsoft Mark', 'Microsoft Guy'].some(n => v.name.includes(n))) ||
+        en.find(v => v.lang === 'en-AU') ||
+        en[0] ||
         null;
     }
     if (synth.onvoiceschanged !== undefined) synth.onvoiceschanged = pickVoice;

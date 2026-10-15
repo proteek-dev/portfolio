@@ -1,239 +1,577 @@
 {
   "name": "Proteek Sanyal",
-  "tagline": "Data Analyst & ML Engineer",
+  "tagline": "AI Solutions Analyst | Business & Systems Analyst | Data Analyst",
   "location": "Gold Coast, Australia",
   "email": "proteeksanyal1994@gmail.com",
   "github": "https://github.com/proteek-dev",
-  "linkedin": "https://linkedin.com/in/proteek-sanyal",
-
+  "linkedin": "https://www.linkedin.com/in/proteeksanyal/",
+  "medium": "https://proteeksanyal.medium.com",
   "greeting": [
-    "Hey! I'm Proteek's AI persona — ask me anything about my work, skills, or projects and I'll do my best to answer.",
-    "Hi there! Think of me as a digital version of Proteek. What would you like to know — experience, skills, projects?",
-    "Hello! I'm here to tell you all about Proteek Sanyal. Ask me about my background, technical skills, or how to get in touch."
+    "Hi. This is a scripted guide to Proteek's work. It answers from his CV, in his words. For anything it can't answer, email proteeksanyal1994@gmail.com.",
+    "Hello. I'm a scripted guide, not an AI. Ask about Proteek's experience, skills or projects and I'll answer from his CV. For anything else, email proteeksanyal1994@gmail.com.",
+    "Hi there. This guide matches your questions to answers Proteek wrote from his CV. Try asking about his roles or projects. For anything else, email proteeksanyal1994@gmail.com."
   ],
-
   "qa": [
     {
       "id": "who",
-      "triggers": ["who are you", "introduce yourself", "about you", "tell me about yourself", "who is proteek", "what do you do", "background"],
+      "triggers": [
+        "who are you",
+        "introduce yourself",
+        "about you",
+        "tell me about yourself",
+        "who is proteek",
+        "what do you do",
+        "background"
+      ],
       "response": [
-        "I'm Proteek Sanyal — a Data Analyst and ML Engineer based in Gold Coast, Australia. I specialise in building end-to-end data and AI systems: pipelines, dashboards, and deployed ML models. I'm currently a Data Analyst at the City of Gold Coast, and I hold a Master's in Data Science from Macquarie University.",
-        "Great question to start with! I'm a data and ML professional with experience across government analytics, identity tech, and marketing data. I love the 'last mile' problem — getting data into a form that's genuinely useful to people, whether that's a Power BI dashboard or a production ML API."
+        "I'm Proteek Sanyal, an AI Solutions Analyst, Business and Systems Analyst, and Data Analyst on the Gold Coast. I sit between business teams and technology, and most of my work starts with someone describing a problem rather than a solution. I have 6 years across business analysis, data and machine learning, and I'm currently a Data Analyst at the City of Gold Coast."
       ]
     },
     {
       "id": "skills",
-      "triggers": ["skills", "technical skills", "what can you do", "tech stack", "technologies", "tools", "what do you know", "expertise", "specialise"],
+      "triggers": [
+        "skills",
+        "technical skills",
+        "what can you do",
+        "tech stack",
+        "technologies",
+        "tools",
+        "what do you know",
+        "expertise",
+        "specialise"
+      ],
       "response": [
-        "My core stack: Python, SQL, Power BI, and cloud platforms — AWS and Azure. On the ML side: scikit-learn, PyTorch, BERT, CNNs, LangChain. For data engineering: dbt, PySpark, Azure Databricks, Azure Data Factory. For deployment: Docker, Kubernetes, CI/CD. And GIS for spatial analysis.",
-        "Technically I span a few domains — data analytics (Power BI, DAX, Tableau), data engineering (Python, SQL, dbt, PySpark, Databricks), machine learning (regression, clustering, NLP, CNNs), and cloud infrastructure (AWS SageMaker, Azure, Docker, K8s). I prefer being end-to-end rather than siloed in just one layer."
+        "Generative AI and automation: Anthropic Claude, OpenAI ChatGPT, Microsoft Copilot, prompt engineering, LangChain, RAG, FAISS vector search, Hugging Face Transformers, embeddings, BERT, Streamlit and Python scripting. Microsoft platform: Power BI with DAX and Power Query, Microsoft Fabric, semantic and dimensional modelling, Microsoft 365, SQL Server, and Azure Data Factory and Databricks. Analysis and delivery: requirements gathering, process and workflow design, solution documentation, UAT, stakeholder engagement, Agile delivery, Jira and Confluence. Programming: Python, SQL, C#, PySpark, R, Pandas, NumPy and Scikit-Learn. Machine learning: CNNs and computer vision, NLP, XGBoost, TensorFlow and PyTorch. Cloud and DevOps: AWS SageMaker, S3, EC2, RDS and ECR, Docker, Kubernetes, CI/CD, GitHub Actions and REST APIs."
       ]
     },
     {
       "id": "experience",
-      "triggers": ["experience", "work history", "career", "jobs", "worked", "previous roles", "employment", "resume", "cv"],
+      "triggers": [
+        "experience",
+        "work history",
+        "career",
+        "jobs",
+        "worked",
+        "previous roles",
+        "employment",
+        "resume",
+        "cv",
+        "your experience",
+        "tell me about your experience",
+        "roles you have had"
+      ],
       "response": [
-        "My main roles: Data Analyst at City of Gold Coast (Jun 2025–present), Data Scientist/Engineer at ICI (Mar–May 2025), and ML Engineer at Truuth (Jul 2023–Nov 2024). Before my Master's I had industry experience in India in data and software engineering. Each role pushed me further into end-to-end delivery.",
-        "I've worked across three main domains: government analytics (City of Gold Coast), identity verification ML (Truuth), and marketing data engineering (ICI). Before that I had industry roles in India. My path went from software engineering into data, then into ML — so I bring a systems mindset to data problems."
+        "Six roles, most recent first. Data Analyst, City of Gold Coast, June 2025 to present. Data Engineer, ICI, March to May 2025. Machine Learning Engineer intern, Truuth, July to November 2023. Data Scientist, Infinite Computer Solutions, August to December 2021. Data Scientist, Tetra Soft India, December 2020 to July 2021. Software Engineer, HCL Technologies, February 2017 to November 2020."
       ]
     },
     {
       "id": "current_role",
-      "triggers": ["current job", "current role", "gold coast", "city of gold coast", "what are you doing now", "current work", "present role", "now"],
+      "triggers": [
+        "current job",
+        "current role",
+        "gold coast",
+        "city of gold coast",
+        "what are you doing now",
+        "current work",
+        "present role",
+        "right now"
+      ],
       "response": [
-        "Right now I'm a Data Analyst at the City of Gold Coast (since June 2025). I build Power BI dashboards using DAX and Power Query for asset management, compliance, and KPI reporting. I've also automated report refresh and distribution using Power Automate — cutting manual effort by around 40%. The data comes from Azure, SharePoint, and internal systems.",
-        "At City of Gold Coast I'm doing a mix of data engineering and stakeholder-facing analytics. Power BI dashboards with full DAX and Power Query, data integration across Azure and SharePoint, and Power Automate workflows to reduce manual reporting overhead. It's satisfying work because the outputs directly inform operational decisions."
+        "I've been a Data Analyst at the City of Gold Coast since June 2025. I work with teams across council departments to understand what they're trying to decide, then build the reporting myself: Power BI dashboards with DAX and Power Query, on semantic models and data pipelines I maintain in Microsoft Fabric. I write Python to automate manual data handling, validate and reconcile data from multiple council systems before anything is published, and document the definitions and business rules so the work supports data governance."
       ]
     },
     {
       "id": "truuth",
-      "triggers": ["truuth", "ml engineer", "liveness", "liveness detection", "sagemaker", "identity verification"],
+      "triggers": [
+        "truuth",
+        "ml engineer",
+        "liveness",
+        "liveness detection",
+        "sagemaker",
+        "identity verification"
+      ],
       "response": [
-        "At Truuth I was an ML Engineer working on user liveness detection — real-time identity verification. I integrated detection models into the existing app architecture, deployed scalable microservices via AWS SageMaker, and improved both detection accuracy and concurrency. I worked in an Agile team with clear success metrics and regular iteration cycles."
+        "At Truuth I was a Machine Learning Engineer intern, from July to November 2023. My main project was User Liveness Detection. I reviewed face anti-spoofing research, fine-tuned a MobileNet-based liveness detection model, and integrated it into the live identity verification app as microservices on AWS SageMaker. I also built data processing pipelines on AWS S3 and SageMaker, and monitored live services."
       ]
     },
     {
       "id": "ici",
-      "triggers": ["ici", "flight centre", "asus", "marketing analytics", "adverity", "roi analysis", "attribution"],
+      "triggers": [
+        "ici",
+        "informatic communications",
+        "flight centre",
+        "asus",
+        "marketing analytics",
+        "data engineer"
+      ],
       "response": [
-        "At ICI I was a Data Scientist/Engineer building dashboards and automated reports for marketing analytics clients like Flight Centre and ASUS. The core work was ROI and attribution analysis — connecting ad spend to outcomes. I built ETL pipelines using Python, SQL, and Adverity, and delivered reports that integrated sales and marketing data."
+        "At ICI I was a Data Engineer, from March to May 2025. ICI runs a media and marketing analytics platform, and clients included Flight Centre and ASUS. I built automated data collection and processing pipelines for data from a dozen marketing channels, built the validation and quality-assurance processes behind campaign reporting, and produced weekly and monthly performance reporting for Australian and international markets."
       ]
     },
     {
       "id": "powerbi",
-      "triggers": ["power bi", "powerbi", "dashboard", "dax", "power query", "bi", "reporting", "business intelligence", "microsoft fabric"],
+      "triggers": [
+        "power bi",
+        "powerbi",
+        "dashboard",
+        "dax",
+        "power query",
+        "bi",
+        "reporting",
+        "business intelligence",
+        "microsoft fabric"
+      ],
       "response": [
-        "Power BI is one of my primary tools right now. I build complex DAX measures and Power Query transformations for enterprise dashboards covering asset management, compliance, and KPI tracking. I also connect to Azure Data Factory, SharePoint, and SQL sources, and automate distribution via Power Automate.",
-        "I've done serious Power BI work — not just drag-and-drop, but custom DAX, optimised data models, row-level security, and automated refresh pipelines. Currently using it daily at City of Gold Coast. I'm also familiar with Microsoft Fabric for the broader analytics ecosystem."
+        "Power BI is my main tool at the City of Gold Coast. I build dashboards and reports using DAX and Power Query, on semantic models and data pipelines I maintain in Microsoft Fabric. Earlier, at Tetra Soft, I presented evacuation risk model outputs through Power BI for non-technical users."
       ]
     },
     {
       "id": "python",
-      "triggers": ["python", "coding", "programming", "code", "scripting", "pandas", "numpy"],
+      "triggers": [
+        "python",
+        "coding",
+        "programming",
+        "code",
+        "scripting",
+        "pandas",
+        "numpy",
+        "automation",
+        "automate",
+        "automated",
+        "workflow"
+      ],
       "response": [
-        "Python is my primary language across all domains — ETL (pandas, PySpark), ML (scikit-learn, PyTorch), APIs (FastAPI), and automation. I write production-quality Python: tested, packaged, and deployed through CI/CD pipelines. Not just notebooks.",
-        "I've been writing Python across data engineering, ML, and automation for years. Key libraries: pandas, scikit-learn, PyTorch, LangChain, FastAPI, PySpark. I care about clean, maintainable code — not just getting results in a notebook."
+        "Python is my main language. At the City of Gold Coast I write Python to automate manual data handling and analysis that would otherwise take hours of someone's week. At HCL I built deep learning and OCR models in Python. My Python toolkit includes Pandas, NumPy, Scikit-Learn and PySpark."
       ]
     },
     {
       "id": "sql",
-      "triggers": ["sql", "database", "query", "postgres", "mysql", "queries", "dbt"],
+      "triggers": [
+        "sql",
+        "database",
+        "query",
+        "queries",
+        "sql server"
+      ],
       "response": [
-        "SQL is foundational to most of my work. I write complex queries with CTEs, window functions, and aggregations — whether in Azure Databricks, Postgres, or Power BI Direct Query mode. I also use dbt for managing SQL transformations as code, with testing and documentation built in."
+        "SQL is one of my core languages, and SQL Server is part of the Microsoft stack I work in. Most of my current reporting work sits on semantic models and data pipelines in Microsoft Fabric."
       ]
     },
     {
       "id": "ml",
-      "triggers": ["machine learning", "ml", "artificial intelligence", "ai", "models", "deep learning", "neural network", "model", "prediction", "train"],
+      "triggers": [
+        "machine learning",
+        "ml",
+        "artificial intelligence",
+        "ai",
+        "models",
+        "deep learning",
+        "neural network",
+        "model",
+        "prediction",
+        "train",
+        "ml work",
+        "your ml work",
+        "machine learning work"
+      ],
       "response": [
-        "My ML work spans the full spectrum: supervised learning (regression, classification), unsupervised (clustering), NLP (BERT, sentiment analysis), and computer vision (CNNs for medical imaging). I focus on production ML — not just experiments, but deployed, monitored systems that actually work at scale.",
-        "I've built ML systems from scratch to deployment: CNNs for medical image classification, BERT sentiment APIs, liveness detection models, and predictive risk models. My experience is both in the modelling side and the engineering side — getting models into production reliably is where I spend a lot of my time."
+        "I have taken a BERT sentiment model and an OCR document-parsing system into production at HCL. At Truuth I fine-tuned a computer vision model that went into a live customer-facing app. At Infinite I built CNN models for medical image analysis, and at Tetra Soft I built predictive models for evacuation risk. My ML tools include XGBoost, TensorFlow, PyTorch and Scikit-Learn."
       ]
     },
     {
       "id": "nlp",
-      "triggers": ["nlp", "natural language", "bert", "sentiment", "text", "language model"],
+      "triggers": [
+        "nlp",
+        "natural language",
+        "bert",
+        "sentiment",
+        "text",
+        "language model"
+      ],
       "response": [
-        "I've built NLP systems using BERT for sentiment analysis — deployed as a REST API via Docker and Kubernetes. I've also worked with LangChain and Hugging Face models for LLM projects. NLP is one of my favourite areas because the gap between raw text and structured insight is so interesting to close."
+        "At HCL I built a BERT-based sentiment analysis model and integrated it into a production voice platform. That was an early lesson in the gap between a model that works in a notebook and one that works for users. More recently I built the Automated Scheme Research Tool with LangChain, SentenceTransformers embeddings, FAISS and DistilBERT for question answering."
       ]
     },
     {
       "id": "computer_vision",
-      "triggers": ["cnn", "computer vision", "image", "vision", "segmentation", "classification", "medical image"],
+      "triggers": [
+        "cnn",
+        "computer vision",
+        "image",
+        "vision",
+        "segmentation",
+        "classification",
+        "medical image"
+      ],
       "response": [
-        "I built a Medical Image Analysis Platform using CNNs for segmentation, classification, and anomaly detection with real-time integration. It reduced false positives and improved diagnostic accuracy. I've also worked on liveness detection (face/identity) at Truuth using computer vision models deployed on AWS SageMaker."
+        "Two work projects. User Liveness Detection at Truuth in 2023: I fine-tuned a MobileNet-based liveness detection model and integrated it into the live identity verification app on AWS SageMaker. Medical Image Analysis Platform at Infinite Computer Solutions in 2021: CNN-based models for medical image segmentation, classification and anomaly detection, deployed behind Flask services and integrated in real time with the platform."
       ]
     },
     {
       "id": "cloud",
-      "triggers": ["aws", "azure", "cloud", "databricks", "cloud platform", "infrastructure", "s3", "ec2", "lambda"],
+      "triggers": [
+        "aws",
+        "azure",
+        "cloud",
+        "cloud platform",
+        "infrastructure",
+        "s3",
+        "ec2",
+        "rds",
+        "ecr",
+        "sagemaker"
+      ],
       "response": [
-        "I work with both AWS and Azure. On AWS: SageMaker for ML deployment, S3, EC2, Lambda. On Azure: Databricks, Data Factory, Microsoft Fabric, SharePoint integrations. For containerisation: Docker and Kubernetes. I can architect and deploy cloud-native data and ML systems end to end.",
-        "Cloud is core to how I build things. AWS for ML model serving (SageMaker), Azure for data engineering pipelines (Data Factory, Databricks), and Docker/K8s for container orchestration. I've used both platforms in production environments."
+        "On AWS I've used SageMaker, S3, EC2, RDS and ECR. SageMaker served the models at Truuth and Infinite, and SEQ Transit AI runs on EC2, RDS and ECR. On Azure I used Data Factory and Databricks for data processing and workflow automation at Tetra Soft."
       ]
     },
     {
       "id": "docker_k8s",
-      "triggers": ["docker", "kubernetes", "k8s", "container", "containerisation", "microservices", "deployment"],
+      "triggers": [
+        "docker",
+        "kubernetes",
+        "k8s",
+        "container",
+        "containerisation",
+        "microservices",
+        "deployment"
+      ],
       "response": [
-        "I use Docker and Kubernetes to containerise and scale applications. I've deployed ML REST APIs (BERT sentiment, liveness detection) using Docker + K8s for reliable uptime. I also set up CI/CD pipelines (GitHub Actions, Azure DevOps) to automate build, test, and deploy cycles."
+        "Docker, Kubernetes, CI/CD, GitHub Actions and REST APIs are in my toolkit. In production I've shipped models as services: liveness detection as microservices on AWS SageMaker at Truuth, medical imaging models behind Flask services at Infinite, and ASP.NET and C# microservices for OCR document parsing at HCL. For SEQ Transit AI I set up a CI/CD pipeline with OIDC and SSM."
       ]
     },
     {
       "id": "projects",
-      "triggers": ["projects", "builds", "portfolio", "what have you built", "side projects", "work samples", "examples"],
+      "triggers": [
+        "projects",
+        "builds",
+        "portfolio",
+        "what have you built",
+        "side projects",
+        "work samples",
+        "examples"
+      ],
       "response": [
-        "Key builds: Liveness Detection system at Truuth (AWS SageMaker, production scale), Medical Image Analysis Platform (CNNs, Docker/AWS, reduced false positives), BERT Sentiment Analysis REST API (Docker + Kubernetes), Evacuation Risk Assessment (Python/scikit-learn, geospatial + health data), and an open-source Maternal Health Early Warning System with dashboards. I also have LangChain + OpenAI LLM projects on GitHub.",
-        "My portfolio spans identity tech, healthcare, public health, and NLP: real-time liveness detection, CNN-based medical image analysis, BERT sentiment APIs, geospatial risk models, and an end-to-end public health prediction dashboard. Each was built end-to-end — not just models, but deployed, integrated systems."
+        "Built at work, where the code belongs to the employer: User Liveness Detection, Truuth, 2023. Medical Image Analysis Platform, Infinite Computer Solutions, 2021. Evacuation Risk Assessment, Tetra Soft, 2020 to 2021. Sentiment Analysis with BERT, HCL, 2017 to 2020. OCR Document Parsing, HCL, 2017 to 2020. Built on my own, with public code: SEQ Transit AI, the Automated Scheme Research Tool, and Maternal Health and Early Outbreak Warning. Ask about any of them by name."
+      ]
+    },
+    {
+      "id": "seq_transit",
+      "triggers": [
+        "seq transit",
+        "seq transit ai",
+        "transit",
+        "transport",
+        "bus",
+        "delay",
+        "delay prediction",
+        "gtfs",
+        "xgboost",
+        "brisbane"
+      ],
+      "response": [
+        "SEQ Transit AI predicts delays on the Gold Coast to Brisbane corridor. Stop-level delay data isn't published anywhere, so I built the sensor first: an EC2 archiver polling the GTFS-Realtime feed every five minutes, giving 156 million rows across 46 days. An XGBoost model on that archive reached a mean absolute error of 1.957 minutes, against a 2.486 minute baseline. When it meets an unfamiliar stop, I force the confidence label to Low, because a wrong answer that looks confident is worse than no answer. It runs on AWS EC2, RDS and ECR. The code is at github.com/proteek-dev/Transit-AI."
+      ]
+    },
+    {
+      "id": "scheme_tool",
+      "triggers": [
+        "scheme",
+        "scheme research",
+        "scheme research tool",
+        "automated scheme research tool",
+        "government schemes",
+        "faiss",
+        "distilbert",
+        "sentencetransformers"
+      ],
+      "response": [
+        "The Automated Scheme Research Tool is a retrieval-augmented document assistant. Government schemes go unused because the information sits in long PDFs nobody reads. The tool ingests source URLs, summarises eligibility, benefits and application steps, and lets people ask questions. It uses LangChain, SentenceTransformers embeddings, a FAISS index, DistilBERT for question answering and a Streamlit chat interface. It runs on free Hugging Face models first, with OpenAI as an optional upgrade. The code is at github.com/proteek-dev/ASRT, and there's a write-up on my Medium."
+      ]
+    },
+    {
+      "id": "maternal_health",
+      "triggers": [
+        "maternal",
+        "maternal health",
+        "outbreak",
+        "early warning",
+        "unctad",
+        "ai for good",
+        "public health",
+        "logistic regression",
+        "z-score"
+      ],
+      "response": [
+        "Maternal Health and Early Outbreak Warning is an open-source prototype, prompted by the UNCTAD white paper on AI for Good. It screens maternal health risk factors and flags unusual spikes in reported community symptoms. I used logistic regression and z-score anomaly detection on purpose, because a health worker has to be able to understand why a case was flagged. I documented it as a prototype, not production software. The code is at github.com/proteek-dev/Maternal-Health-Early-Warning, and there's a write-up on my Medium."
+      ]
+    },
+    {
+      "id": "hcl",
+      "triggers": [
+        "hcl",
+        "hcl technologies",
+        "software engineer",
+        "ocr",
+        "document parsing",
+        "asp net",
+        "asp.net"
+      ],
+      "response": [
+        "At HCL Technologies I was a Software Engineer, from February 2017 to November 2020, in telecommunications and enterprise software. I built a BERT-based sentiment analysis model and integrated it into a production voice platform. I designed deep learning and OCR models in Python for automated document parsing, replacing manual data entry, with ASP.NET and C# microservices handling requests. I also turned business requirements into technical specifications and built automation tooling for infrastructure provisioning."
+      ]
+    },
+    {
+      "id": "tetra_soft",
+      "triggers": [
+        "tetra",
+        "tetra soft",
+        "evacuation",
+        "evacuation risk",
+        "passport 360",
+        "risk analytics"
+      ],
+      "response": [
+        "At Tetra Soft India I was a Data Scientist, from December 2020 to July 2021, on the Passport 360 risk analytics platform. On Evacuation Risk Assessment I built predictive models to assess medical and political evacuation risk, and presented the outputs through Power BI for non-technical users. I also engineered data processing and workflow automation using Azure Data Factory and Databricks."
+      ]
+    },
+    {
+      "id": "infinite",
+      "triggers": [
+        "infinite",
+        "infinite computer solutions",
+        "edison health link",
+        "healthcare",
+        "medical imaging"
+      ],
+      "response": [
+        "At Infinite Computer Solutions I was a Data Scientist, from August to December 2021, on the Edison Health Link healthcare platform. For the Medical Image Analysis Platform I built CNN-based models for medical image segmentation, classification and anomaly detection, deployed behind Flask services and orchestrated through AWS SageMaker. The models reduced false positives. I worked with cross-functional teams on feature requirements, in a regulated environment."
       ]
     },
     {
       "id": "llm",
-      "triggers": ["llm", "langchain", "openai", "gpt", "hugging face", "rag", "large language model", "chatbot", "generative ai", "genai"],
+      "triggers": [
+        "llm",
+        "langchain",
+        "openai",
+        "gpt",
+        "hugging face",
+        "rag",
+        "large language model",
+        "generative ai",
+        "genai",
+        "claude",
+        "chatgpt",
+        "copilot",
+        "prompt engineering"
+      ],
       "response": [
-        "I've done end-to-end LLM projects using LangChain, OpenAI, Hugging Face, and FAISS for vector search. I'm interested in RAG architectures, prompt engineering, and production-ready LLM pipelines. Fun fact — this AI persona you're talking to right now is a product of that interest!"
+        "I use Claude and ChatGPT daily in my own work, including building and deploying a machine learning service end to end on AWS. My main LLM build is the Automated Scheme Research Tool, a retrieval-augmented assistant built with LangChain, FAISS, SentenceTransformers and DistilBERT. That experience is also why I'm comfortable saying when generative AI is the wrong tool. This chat doesn't use an LLM. It matches keywords in your question to answers I wrote."
+      ]
+    },
+    {
+      "id": "about_chat",
+      "triggers": [
+        "how does this chat work",
+        "how does this work",
+        "are you ai",
+        "are you an ai",
+        "are you a bot",
+        "are you real",
+        "are you an llm",
+        "is this ai",
+        "chatbot",
+        "is this chatgpt",
+        "who wrote this"
+      ],
+      "response": [
+        "This chat is scripted. It matches keywords in your question to answers Proteek wrote from his CV. There's no AI model behind it, so if your question isn't covered, email him at proteeksanyal1994@gmail.com."
       ]
     },
     {
       "id": "education",
-      "triggers": ["education", "degree", "university", "study", "masters", "bachelors", "qualifications", "studied", "background"],
+      "triggers": [
+        "education",
+        "degree",
+        "university",
+        "study",
+        "masters",
+        "bachelors",
+        "qualifications",
+        "studied"
+      ],
       "response": [
-        "I have a Master of Science in Data Science from Macquarie University, Sydney (2022–2024), and a B.Tech in Computer Science and Engineering from GLA University, India (2011–2015). The Master's gave me deep grounding in ML theory, applied statistics, and data engineering — plus hands-on project experience.",
-        "My academic background: B.Tech in Computer Science (GLA University, 2011–2015), then a decade of industry experience, then a Master's in Data Science at Macquarie University in Sydney (2022–2024). Returning to academia after working was a deliberate choice — I wanted to deepen the theory behind what I was already doing in practice."
+        "I have a Master of Science in Data Science from Macquarie University, Sydney, 2022 to 2024, and a Bachelor of Technology in Computer Science and Engineering from GLA University, India, 2011 to 2015."
       ]
     },
     {
       "id": "macquarie",
-      "triggers": ["macquarie", "macquarie university", "sydney", "master of science"],
+      "triggers": [
+        "macquarie",
+        "macquarie university",
+        "sydney",
+        "master of science"
+      ],
       "response": [
-        "I completed my Master of Science in Data Science at Macquarie University in Sydney (2022–2024). It was a rigorous programme blending applied ML, data engineering, statistics, and research methods. Great experience — and Sydney is a pretty good place to study too."
+        "I completed a Master of Science in Data Science at Macquarie University in Sydney, from 2022 to 2024."
       ]
     },
     {
       "id": "contact",
-      "triggers": ["contact", "email", "reach", "get in touch", "connect", "message", "talk to you", "reach out"],
+      "triggers": [
+        "contact",
+        "email",
+        "reach",
+        "get in touch",
+        "connect",
+        "message",
+        "talk to you",
+        "reach out"
+      ],
       "response": [
-        "Best way to reach me: proteeksanyal1994@gmail.com. I'm always happy to chat about data, AI, or new opportunities. You can also find me on LinkedIn and GitHub — links are in the portfolio.",
-        "Drop me an email at proteeksanyal1994@gmail.com — I respond pretty quickly. Or connect on LinkedIn if you prefer. I'm always open to interesting conversations about data engineering, ML, and analytics."
+        "Email me at proteeksanyal1994@gmail.com. You can also find me on LinkedIn at linkedin.com/in/proteeksanyal, on GitHub at github.com/proteek-dev, and on Medium at proteeksanyal.medium.com."
       ]
     },
     {
       "id": "hire",
-      "triggers": ["hire", "available", "open to work", "job", "opportunity", "recruiting", "looking for work", "roles", "position", "vacancy"],
+      "triggers": [
+        "hire",
+        "available",
+        "open to work",
+        "job",
+        "opportunity",
+        "recruiting",
+        "looking for work",
+        "roles",
+        "position",
+        "vacancy"
+      ],
       "response": [
-        "I'm currently employed at City of Gold Coast, but I'm always open to conversations about interesting opportunities — especially roles at the intersection of data engineering, ML, and analytics. Feel free to email me at proteeksanyal1994@gmail.com.",
-        "I'm open to hearing about the right opportunities. My sweet spot is roles that blend data engineering with ML or advanced analytics — ideally with real production impact. Shoot me an email at proteeksanyal1994@gmail.com and let's talk."
+        "I'm currently a Data Analyst at the City of Gold Coast, and I have full working rights in Australia. To talk about a role, email me at proteeksanyal1994@gmail.com."
       ]
     },
     {
       "id": "github",
-      "triggers": ["github", "code repository", "open source", "repo", "repositories", "code samples"],
+      "triggers": [
+        "github",
+        "code repository",
+        "open source",
+        "repo",
+        "repositories",
+        "code samples"
+      ],
       "response": [
-        "My GitHub is github.com/proteek-dev — you'll find LLM projects, ML pipelines, and data engineering work there. I try to keep things documented and production-ready rather than just raw notebook experiments."
+        "My GitHub is github.com/proteek-dev. The code for my own projects is there: SEQ Transit AI, the Automated Scheme Research Tool, and Maternal Health and Early Outbreak Warning. My work projects belong to my employers, so their code isn't public."
+      ]
+    },
+    {
+      "id": "medium",
+      "triggers": [
+        "medium",
+        "blog",
+        "articles",
+        "writing",
+        "write ups",
+        "write-up",
+        "ai governance",
+        "agent permissions"
+      ],
+      "response": [
+        "I write on Medium at proteeksanyal.medium.com. I build AI tools in public and write up what I learn, including AI governance, agent permissions and where the technology should not be trusted. There are write-ups for the Automated Scheme Research Tool and for Maternal Health and Early Outbreak Warning."
+      ]
+    },
+    {
+      "id": "work_rights",
+      "triggers": [
+        "work rights",
+        "working rights",
+        "visa",
+        "sponsorship",
+        "citizen",
+        "permanent resident",
+        "right to work"
+      ],
+      "response": [
+        "I have full working rights in Australia."
       ]
     },
     {
       "id": "location",
-      "triggers": ["where are you", "location", "based", "australia", "gold coast", "where do you live", "where do you work"],
+      "triggers": [
+        "where are you",
+        "location",
+        "based",
+        "australia",
+        "gold coast",
+        "where do you live",
+        "where do you work"
+      ],
       "response": [
-        "I'm based in Gold Coast, Australia. I've also worked in Sydney (where I studied at Macquarie) and have prior industry experience from India. Gold Coast is a great place to live — good weather helps when you're staring at dashboards all day."
-      ]
-    },
-    {
-      "id": "gis",
-      "triggers": ["gis", "geospatial", "mapping", "spatial", "geographic", "geo"],
-      "response": [
-        "I have GIS skills — I used geospatial analysis in the Evacuation Risk Assessment project, combining geographic and health data to model evacuation risks and produce reports for stakeholders. I've worked with Python GIS libraries and spatial data within broader analytics pipelines."
+        "I'm based on the Gold Coast, Australia. I'm a Gold Coast local with no plans to be anywhere else. I studied in Sydney at Macquarie University, and earlier worked in India at HCL, Tetra Soft and Infinite."
       ]
     },
     {
       "id": "pyspark",
-      "triggers": ["pyspark", "big data", "spark", "databricks", "large scale", "distributed"],
+      "triggers": [
+        "pyspark",
+        "big data",
+        "spark",
+        "databricks",
+        "large scale",
+        "distributed"
+      ],
       "response": [
-        "For big data processing I use PySpark, primarily within Azure Databricks. I've built scalable ETL pipelines that process large datasets for analytics and ML feature engineering — handling the kind of volumes where pandas alone doesn't cut it."
-      ]
-    },
-    {
-      "id": "tableau",
-      "triggers": ["tableau", "visualization", "visualisation", "charts", "graphs", "data viz"],
-      "response": [
-        "I've used Tableau for data visualisation alongside Power BI. For enterprise BI I lean toward Power BI these days, but I use Python (matplotlib, plotly, seaborn) for custom or exploratory visualisations. The right tool depends on the audience and the workflow."
+        "PySpark is in my programming toolkit. At Tetra Soft I engineered data processing and workflow automation using Azure Data Factory and Databricks."
       ]
     },
     {
       "id": "motivation",
-      "triggers": ["motivation", "passion", "interest", "love", "enjoy", "why data", "why ml", "what drives you"],
+      "triggers": [
+        "motivation",
+        "passion",
+        "interest",
+        "love",
+        "enjoy",
+        "why data",
+        "why ml",
+        "what drives you"
+      ],
       "response": [
-        "I'm genuinely excited by the intersection of data engineering and AI — taking messy, real-world data and building systems that create measurable impact. Whether it's a dashboard that saves someone 40% of their time or an ML model that improves diagnostic accuracy, I care most about the 'last mile' that makes data actually useful.",
-        "What drives me is seeing data turn into a decision. I love problems where systems thinking and domain knowledge collide — getting a model deployed and observed and iterated on is far more interesting to me than just getting it to train."
+        "I build AI tools in public and write up what I learn, partly to stay sharp and mostly because I enjoy it. The transit project started because I got tired of standing at a platform that said arriving now for eleven minutes. At work, what I care about is asking what a team actually needs before deciding what to build."
       ]
     },
     {
       "id": "workstyle",
-      "triggers": ["agile", "scrum", "team", "collaboration", "work style", "how do you work", "approach", "process"],
+      "triggers": [
+        "agile",
+        "scrum",
+        "team",
+        "collaboration",
+        "work style",
+        "how do you work",
+        "approach",
+        "process"
+      ],
       "response": [
-        "I work well in Agile teams — I've delivered in sprint-based environments at Truuth and ICI with clear success metrics and regular stakeholder touchpoints. I'm comfortable working independently on complex problems, but I thrive when I can collaborate and get feedback early. I prefer shipping something working over planning indefinitely."
+        "I start by asking what a team is actually trying to decide. What people ask for first is often not what they need, so the early conversations matter most. Then I build, validate the data before anything is published, document the business rules, and present the findings to managers and non-technical stakeholders. I've worked in Agile delivery, with Jira and Confluence."
       ]
     },
     {
       "id": "microsoft_fabric",
-      "triggers": ["microsoft fabric", "fabric", "onelake", "lakehouse"],
+      "triggers": [
+        "microsoft fabric",
+        "fabric",
+        "onelake",
+        "lakehouse"
+      ],
       "response": [
-        "I've worked with Microsoft Fabric in the context of the City of Gold Coast role — it's a natural extension of the Power BI and Azure stack I already use. Fabric's lakehouse architecture and tight Power BI integration make it compelling for organisations already deep in the Microsoft ecosystem."
-      ]
-    },
-    {
-      "id": "power_automate",
-      "triggers": ["power automate", "automation", "automate", "workflow", "flow", "automated"],
-      "response": [
-        "I use Power Automate to automate report distribution and data refresh workflows — at City of Gold Coast this cut manual effort by about 40%. It's great for connecting Power BI, SharePoint, Teams, and external data sources without writing full backend services."
+        "At the City of Gold Coast I maintain semantic models and data pipelines in Microsoft Fabric, and build the Power BI dashboards and reports on top of them."
       ]
     }
   ],
-
   "fallback": [
-    "That's an interesting one — I might not have the full context for that. Try asking about my skills, experience, specific projects, or just how to get in touch!",
-    "Hmm, I don't have a precise answer for that. I'm best at talking about my technical background, work history, and projects. Or if you'd rather chat directly — proteeksanyal1994@gmail.com.",
-    "I'm not sure I caught that one. Feel free to ask about my skills, roles, machine learning work, or anything else from my background — or rephrase and I'll do better!"
+    "I don't have an answer for that. Try asking: What projects have you built? What do you do at the City of Gold Coast? What is SEQ Transit AI? Or email proteeksanyal1994@gmail.com.",
+    "That isn't covered here. This guide only answers from Proteek's CV. Try: Tell me about your experience. What are your skills? How does this chat work? For anything else, email proteeksanyal1994@gmail.com.",
+    "I can't answer that one. Try: What did you do at Truuth? Tell me about the Automated Scheme Research Tool. Do you have work rights in Australia? Or email proteeksanyal1994@gmail.com."
   ]
 }
