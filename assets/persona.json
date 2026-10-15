@@ -204,7 +204,7 @@
         "medical image"
       ],
       "response": [
-        "Two work projects. User Liveness Detection at Truuth in 2023: I fine-tuned a MobileNet-based liveness detection model and integrated it into the live identity verification app on AWS SageMaker. Medical Image Analysis Platform at Infinite Computer Solutions in 2021: CNN-based models for medical image segmentation, classification and anomaly detection, deployed behind Flask services and integrated in real time with the platform."
+        "Two work projects. User Liveness Detection at Truuth in 2023: I fine-tuned a MobileNet-based liveness detection model and integrated it into the live identity verification app on AWS SageMaker. Medical Image Analysis Platform at Infinite Computer Solutions in 2021: CNN-based models for medical image segmentation, classification and anomaly detection, deployed behind Flask services and integrated in real time with the platform. The models improved diagnostic accuracy by 25% and reduced false positives."
       ]
     },
     {
@@ -345,7 +345,7 @@
         "medical imaging"
       ],
       "response": [
-        "At Infinite Computer Solutions I was a Data Scientist, from August to December 2021, on the Edison Health Link healthcare platform. For the Medical Image Analysis Platform I built CNN-based models for medical image segmentation, classification and anomaly detection, deployed behind Flask services and orchestrated through AWS SageMaker. The models reduced false positives. I worked with cross-functional teams on feature requirements, in a regulated environment."
+        "At Infinite Computer Solutions I was a Data Scientist, from August to December 2021, on the Edison Health Link healthcare platform. For the Medical Image Analysis Platform I built CNN-based models for medical image segmentation, classification and anomaly detection, deployed behind Flask services and orchestrated through AWS SageMaker. The models improved diagnostic accuracy by 25% and reduced false positives. I worked with cross-functional teams on feature requirements, in a regulated environment."
       ]
     },
     {
