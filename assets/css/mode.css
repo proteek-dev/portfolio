@@ -1,8 +1,8 @@
 /* Accent per mode */
-body[data-mode="looker"]    { --accent: rgba(120,255,210,.92); }
+body[data-mode="visitor"]   { --accent: rgba(120,255,210,.92); }
 body[data-mode="recruiter"] { --accent: rgba(130,170,255,.92); }
-body[data-mode="developer"] { --accent: rgba(255,255,255,.80); }
-body[data-mode="persona"]   { --accent: rgba(180,120,255,.92); }
+body[data-mode="partner"]   { --accent: rgba(255,190,110,.92); }
+body[data-mode="ask"]       { --accent: rgba(180,120,255,.92); }
 
 h1{ margin: 8px 0 0; font-size: clamp(28px, 4vw, 44px); }
 h2{ letter-spacing:.2px; }
@@ -65,3 +65,64 @@ h2{ letter-spacing:.2px; }
   color: rgba(255,255,255,.86);
 }
 .portrait-meta a:hover{ color: var(--accent); }
+
+/* Recruiter: 30-second read */
+.read-grid{ display:grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.read-facts{ margin:0; display:grid; gap: 12px; align-content:start; }
+.read-facts dt{ font-family: var(--mono); font-size: 11px; color: rgba(255,255,255,.60); letter-spacing: 1.2px; }
+.read-facts dd{ margin: 4px 0 0; color: rgba(255,255,255,.86); }
+.read-proof ul{ margin: 10px 0 0; padding-left: 18px; color: rgba(255,255,255,.75); line-height: 1.65; }
+.read-actions{ display:flex; flex-wrap:wrap; align-items:center; gap: 10px; margin-top: 16px; }
+@media (max-width: 640px){
+  .read-grid{ grid-template-columns: 1fr; }
+}
+
+/* Public evidence links after a claim */
+.proof-links a{ font-family: var(--mono); font-size: 12px; color: var(--accent); margin-left: 8px; white-space: nowrap; }
+.proof-links a:hover{ text-decoration: underline; }
+
+.section-note{ margin: -4px 0 12px; font-size: 14px; }
+
+/* Partner */
+.offer{ display:flex; flex-direction:column; }
+.offer h3{ margin:0; }
+.offer p{ flex:1; color: rgba(255,255,255,.75); line-height:1.6; }
+.offer-ref{ font-family: var(--mono); font-size: 12px; color: rgba(255,255,255,.60); }
+a.offer-ref{ color: var(--accent); }
+a.offer-ref:hover{ text-decoration: underline; }
+
+.steps{ margin:0; padding-left: 22px; display:grid; gap: 8px; line-height:1.6; color: rgba(255,255,255,.86); }
+.steps li::marker{ font-family: var(--mono); color: var(--accent); }
+
+.case summary{ cursor:pointer; list-style:none; display:grid; gap: 4px; }
+.case summary::-webkit-details-marker{ display:none; }
+.case summary h3{ margin:0; display:flex; align-items:center; gap: 10px; }
+.case summary h3::before{ content:"+"; font-family: var(--mono); color: var(--accent); width: 12px; }
+.case details[open] summary h3::before{ content:"\2212"; }
+.case-sub{ font-family: var(--mono); font-size: 12px; color: var(--muted); padding-left: 22px; }
+.case-links{ display:block; margin: 10px 0 0 14px; }
+.case-log{ display:grid; gap: 14px; margin-top: 16px; }
+.case-row{ display:grid; grid-template-columns: 200px 1fr; gap: 16px; align-items:baseline; }
+.case-row p{ margin:0; color: rgba(255,255,255,.78); line-height:1.65; }
+.case-row.decision{ border-left: 2px solid var(--accent); padding: 6px 0 6px 14px; margin-left: -16px; }
+.case-row.decision p{ font-size: 1.08em; color: rgba(255,255,255,.92); }
+@media (max-width: 640px){
+  .case-row{ grid-template-columns: 1fr; gap: 4px; }
+}
+
+.writing{ margin:0; padding-left: 18px; display:grid; gap: 8px; line-height:1.6; }
+.writing a{ color: rgba(255,255,255,.90); border-bottom: 1px solid rgba(255,255,255,.25); }
+.writing a:hover{ color: var(--accent); border-color: var(--accent); }
+.writing .muted{ font-family: var(--mono); font-size: 12px; margin-left: 6px; }
+
+/* Visitor */
+.cta{ display:flex; flex-wrap:wrap; gap: 10px; margin-top: 16px; }
+.in-short{ margin:0; line-height:1.7; color: rgba(255,255,255,.86); }
+.built{ display:flex; flex-direction:column; }
+.built h3{ margin: 6px 0 0; }
+.built p{ flex:1; color: rgba(255,255,255,.78); line-height:1.6; }
+.built-tag{ font-family: var(--mono); font-size: 11px; letter-spacing: 1.2px; color: var(--accent); text-transform: uppercase; }
+.built-note{ font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.panel-links{ display:block; margin-top: 10px; }
+.panel-links a:first-child{ margin-left: 0; }
+.where-next{ display:flex; flex-wrap:wrap; gap: 10px; align-items:center; }

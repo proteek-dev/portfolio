@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Partner · Proteek Kumar Sanyal</title>
+  <meta name="description" content="Projects by Proteek Kumar Sanyal: SEQ Transit AI, Automated Scheme Research Tool, Maternal Health and Early Outbreak Warning, plus work builds." />
+  <meta name="theme-color" content="#05060a" />
+  <link rel="canonical" href="https://proteek-dev.github.io/portfolio/partner.html" />
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Partner · Proteek Kumar Sanyal" />
+  <meta property="og:description" content="Projects by Proteek Kumar Sanyal: SEQ Transit AI, Automated Scheme Research Tool, Maternal Health and Early Outbreak Warning, plus work builds." />
+  <meta property="og:url" content="https://proteek-dev.github.io/portfolio/partner.html" />
+  <meta property="og:image" content="https://proteek-dev.github.io/portfolio/assets/img/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Proteek Kumar Sanyal, AI Solutions Analyst | Business &amp; Systems Analyst | Data Analyst" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/mode.css" />
+</head>
+<body class="theme theme-partner" data-mode="partner">
+  <div class="bg-aurora"></div>
+  <div class="bg-noise"></div>
+  <div class="vignette"></div>
+  <div class="cursor-glow" id="cursorGlow"></div>
+  <canvas id="starfield" class="starfield" aria-hidden="true"></canvas>
+
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="Back to portal">
+      <span class="brand-dot"></span>
+      <span class="brand-title">PROTEEK <span class="muted">//</span> PARTNER</span>
+      <span class="brand-sub">Case studies and how I work</span>
+    </a>
+    <div class="top-actions">
+      <a class="btn" href="visitor.html">Visitor</a>
+      <a class="btn" href="recruiter.html">Recruiter</a>
+      <a class="btn" href="ask.html">Ask Me</a>
+      <a class="btn" href="assets/Proteek_Sanyal_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="hero compact">
+      <div class="hero-left">
+        <div class="kicker">PARTNER</div>
+        <h1>What I can build for you.</h1>
+        <p class="lead">I take a problem a team describes in plain words and build the smallest thing that answers it. Then I make sure people can tell when to trust it.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>What I can build</h2>
+      <div class="grid3">
+        <div class="panel offer">
+          <h3>Reporting people use</h3>
+          <p>Requirements first, then Power BI and Microsoft Fabric, with the definitions and business rules written down.</p>
+          <span class="offer-ref">City of Gold Coast work</span>
+        </div>
+        <div class="panel offer">
+          <h3>Assistants that cite their sources</h3>
+          <p>Retrieval over your documents using free models first. Every answer links to where it came from.</p>
+          <a class="offer-ref" href="#scheme-tool">Case study: Automated Scheme Research Tool</a>
+        </div>
+        <div class="panel offer">
+          <h3>Predictions with honest confidence</h3>
+          <p>Models measured against a baseline, with a confidence label that says Low when it should.</p>
+          <a class="offer-ref" href="#seq-transit">Case study: SEQ Transit AI</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>How I work</h2>
+      <div class="panel">
+        <ol class="steps">
+          <li>Ask what you&#x27;re trying to decide, before deciding what to build.</li>
+          <li>Build the smallest version that answers it.</li>
+          <li>Measure it against a baseline and show where it&#x27;s wrong.</li>
+          <li>Document it so it works after I&#x27;ve moved on.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Case studies</h2>
+      <div class="timeline">
+      <article class="panel case" id="seq-transit">
+        <details open>
+          <summary>
+            <h3>SEQ Transit AI</h3>
+            <span class="case-sub">Delay prediction for the Gold Coast to Brisbane corridor</span>
+          </summary>
+          <div class="case-links proof-links"><a href="https://d17e9wvem3lbaq.cloudfront.net" target="_blank" rel="noopener">Try it</a><a href="https://github.com/proteek-dev/Transit-AI" target="_blank" rel="noopener">Code</a><a href="https://proteeksanyal.medium.com/should-i-leave-now-building-a-weather-app-for-my-commute-a85a3ef9b6ab" target="_blank" rel="noopener">Write-up</a></div>
+          <div class="case-log">
+            <div class="case-row">
+              <div class="kicker">THE PROBLEM</div>
+              <p>TransLink publishes system-wide monthly on-time averages, but no stop-level or per-line delay history. Journey planners show the timetable. None of them say how much to trust it, or when you should actually leave.</p>
+            </div>
+            <div class="case-row">
+              <div class="kicker">WHAT I BUILT</div>
+              <p>I built the sensor first. An archiver on EC2 polls TransLink&#x27;s GTFS-Realtime feeds every five minutes and stores them in S3, including the tram endpoints the combined feed leaves out. That gave me 156 million rows across 46 days. An XGBoost model trained on that archive predicts arrival delay. The live app takes a From and To stop and returns direct or multi-leg trips across bus, rail and tram, a leave-by time, and a High, Medium or Low confidence label.</p>
+            </div>
+            <div class="case-row decision">
+              <div class="kicker">THE DECISION THAT MATTERED</div>
+              <p>When the model meets a stop it hasn&#x27;t seen in training, it forces the confidence label to Low, even when the prediction looks clean. A wrong answer that looks confident is worse than no answer.</p>
+            </div>
+            <div class="case-row">
+              <div class="kicker">RESULT</div>
+              <p>Test MAE of 1.957 minutes against a 2.486-minute naive baseline, a 21.3% improvement. Live on AWS (EC2, S3, CloudFront) with a FastAPI back end and a Leaflet map.</p>
+            </div>
+            <div class="case-row">
+              <div class="kicker">LIMITS AND NEXT</div>
+              <p>Tram data is still thin, so tram predictions carry lower confidence. Live delay isn&#x27;t blended into the production prediction yet; that&#x27;s the next model version. Ferry is excluded on purpose.</p>
+            </div>
+          </div>
+          <div class="chips"><span class="chip">Python</span><span class="chip">XGBoost</span><span class="chip">pandas</span><span class="chip">FastAPI</span><span class="chip">Leaflet</span><span class="chip">Docker</span><span class="chip">AWS EC2</span><span class="chip">S3</span><span class="chip">CloudFront</span></div>
+        </details>
+      </article>
+      <article class="panel case" id="scheme-tool">
+        <details>
+          <summary>
+            <h3>Automated Scheme Research Tool</h3>
+            <span class="case-sub">A retrieval-augmented assistant for government scheme pages</span>
+          </summary>
+          <div class="case-links proof-links"><a href="https://github.com/proteek-dev/ASRT" target="_blank" rel="noopener">Code</a><a href="https://proteeksanyal.medium.com/end-to-end-llm-projects-using-langchain-openai-huggingface-and-faissv-3a00ce01a273" target="_blank" rel="noopener">Write-up</a></div>
+          <div class="case-log">
+            <div class="case-row">
+              <div class="kicker">THE PROBLEM</div>
+              <p>Government schemes go unused because the details sit in long pages nobody reads: who is eligible, what you get, how to apply, which documents you need.</p>
+            </div>
+            <div class="case-row">
+              <div class="kicker">WHAT I BUILT</div>
+              <p>A retrieval-augmented assistant. You give it scheme URLs or a file of URLs. LangChain loads the pages, SentenceTransformers embeds them, and a FAISS index finds the passage closest to your question. DistilBERT extracts the answer from that passage, and the Streamlit chat shows the answer with its source URL and a short summary. The index is saved to disk, so the same pages aren&#x27;t processed twice.</p>
+            </div>
+            <div class="case-row decision">
+              <div class="kicker">THE DECISION THAT MATTERED</div>
+              <p>It runs on free Hugging Face models. A tool that only works with a paid API key isn&#x27;t much use to the organisations that need it most.</p>
+            </div>
+            <div class="case-row">
+              <div class="kicker">RESULT</div>
+              <p>A working end-to-end RAG pipeline that cites its source for every answer. The same pattern applies to internal policy and procedure documents.</p>
+            </div>
+            <div class="case-row">
+              <div class="kicker">LIMITS AND NEXT</div>
+              <p>It retrieves a single best passage per question, and the summary is a short extract from that passage. Next: categorise schemes by topic and update the index as new URLs are added.</p>
+            </div>
+          </div>
+          <div class="chips"><span class="chip">Python</span><span class="chip">LangChain</span><span class="chip">Hugging Face SentenceTransformers</span><span class="chip">FAISS</span><span class="chip">DistilBERT</span><span class="chip">Streamlit</span></div>
+        </details>
+      </article>
+      <article class="panel case" id="maternal-health">
+        <details>
+          <summary>
+            <h3>Maternal Health and Early Outbreak Warning</h3>
+            <span class="case-sub">A prototype risk screen and outbreak dashboard for low-resource clinics</span>
+          </summary>
+          <div class="case-links proof-links"><a href="https://github.com/proteek-dev/Maternal-Health-Early-Warning" target="_blank" rel="noopener">Code</a><a href="https://proteeksanyal.medium.com/building-ai-for-maternal-health-early-outbreak-warning-open-source-mvp-b2aaf83bc8e3" target="_blank" rel="noopener">Write-up</a></div>
+          <div class="case-log">
+            <div class="case-row">
+              <div class="kicker">THE PROBLEM</div>
+              <p>Prompted by the UNCTAD white paper on AI for Good: low-resource clinics need to spot high-risk pregnancies and unusual symptom spikes early, on modest hardware.</p>
+            </div>
+            <div class="case-row">
+              <div class="kicker">WHAT I BUILT</div>
+              <p>A prototype with two parts. A maternal risk screen takes age, blood pressure, haemoglobin, gestational age and prior history, and returns a risk score. An outbreak dashboard tracks reported fever, cough and diarrhoea by location and flags unusual spikes. Streamlit front end, SQLite behind it.</p>
+            </div>
+            <div class="case-row decision">
+              <div class="kicker">THE DECISION THAT MATTERED</div>
+              <p>Logistic regression and z-score anomaly detection, nothing more sophisticated. A health worker has to be able to understand why a case was flagged, and it has to run on a laptop or low-cost cloud.</p>
+            </div>
+            <div class="case-row">
+              <div class="kicker">RESULT</div>
+              <p>A working, documented prototype trained and tested on synthetic data.</p>
+            </div>
+            <div class="case-row">
+              <div class="kicker">LIMITS AND NEXT</div>
+              <p>It&#x27;s a prototype. It isn&#x27;t a medical device and hasn&#x27;t been clinically validated. Encryption, hashed identifiers and bias testing across groups are listed as prerequisites before anyone takes it further. Being explicit about that boundary mattered more than the model did.</p>
+            </div>
+          </div>
+          <div class="chips"><span class="chip">Python</span><span class="chip">scikit-learn</span><span class="chip">pandas</span><span class="chip">Streamlit</span><span class="chip">SQLite</span></div>
+        </details>
+      </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Built at work</h2>
+      <p class="muted">Production work for employers. The code belongs to them, so there are no links.</p>
+
+      <div class="grid2">
+        <article class="panel">
+          <h3>User Liveness Detection (Truuth, 2023)</h3>
+          <p>
+            Reviewed the current state of face anti-spoofing research, fine-tuned a MobileNet-based liveness detection model, and integrated it into the live customer-facing identity verification app as microservices on AWS SageMaker.
+          </p>
+          <div class="chips"><span class="chip">MobileNet</span><span class="chip">AWS SageMaker</span><span class="chip">Microservices</span></div>
+        </article>
+
+        <article class="panel">
+          <h3>Medical Image Analysis Platform (Infinite Computer Solutions, 2021)</h3>
+          <p>
+            Built CNN-based models for medical image segmentation, classification and anomaly detection, deployed behind Flask services, orchestrated through AWS SageMaker and integrated in real time with the platform. The models improved diagnostic accuracy by 25% and reduced false positives.
+          </p>
+          <div class="chips"><span class="chip">CNN</span><span class="chip">Flask</span><span class="chip">AWS SageMaker</span></div>
+        </article>
+
+        <article class="panel">
+          <h3>Evacuation Risk Assessment (Tetra Soft, 2020–21)</h3>
+          <p>
+            Built predictive models to assess medical and political evacuation risk, and presented the outputs through Power BI for non-technical users. Data processing and workflow automation ran on Azure Data Factory and Databricks.
+          </p>
+          <div class="chips"><span class="chip">Power BI</span><span class="chip">Azure Data Factory</span><span class="chip">Databricks</span></div>
+        </article>
+
+        <article class="panel">
+          <h3>Sentiment Analysis with BERT and OCR Document Parsing (HCL, 2017–20)</h3>
+          <p>
+            Built a BERT-based sentiment analysis model and integrated it into a production voice platform.
+            Designed deep learning and OCR models in Python for automated document parsing, replacing manual data entry, with microservices in ASP.NET and C# handling requests.
+          </p>
+          <div class="chips"><span class="chip">BERT</span><span class="chip">OCR</span><span class="chip">Python</span><span class="chip">ASP.NET</span><span class="chip">C#</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Writing</h2>
+      <div class="panel">
+        <ul class="writing">
+          <li><a href="https://proteeksanyal.medium.com/should-i-leave-now-building-a-weather-app-for-my-commute-a85a3ef9b6ab" target="_blank" rel="noopener">Should I Leave Now? (SEQ Transit AI)</a> <span class="muted">Aug 2026</span></li>
+          <li><a href="https://proteeksanyal.medium.com/building-ai-for-maternal-health-early-outbreak-warning-open-source-mvp-b2aaf83bc8e3" target="_blank" rel="noopener">Building AI for Maternal Health &amp; Early Outbreak Warning</a> <span class="muted">Oct 2025</span></li>
+          <li><a href="https://proteeksanyal.medium.com/end-to-end-llm-projects-using-langchain-openai-huggingface-and-faissv-3a00ce01a273" target="_blank" rel="noopener">End-to-end LLM projects using LangChain, OpenAI/Hugging Face and FAISS</a> <span class="muted">Jan 2025</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Start a conversation</h2>
+      <div class="panel">
+        <p>If you have a problem like one of these, tell me about it.</p>
+        <div class="read-actions">
+          <a class="btn" href="mailto:proteeksanyal1994@gmail.com">Email me</a>
+          <a class="mini" href="mailto:proteeksanyal1994@gmail.com">proteeksanyal1994@gmail.com</a>
+          <span class="dot">•</span>
+          <a class="mini" href="https://github.com/proteek-dev" target="_blank" rel="noopener">GitHub</a>
+          <span class="dot">•</span>
+          <a class="mini" href="https://www.linkedin.com/in/proteeksanyal/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <a class="mini" href="index.html">← Back to portal</a>
+      <span class="dot">•</span>
+      <a class="mini" href="visitor.html">Visitor</a>
+      <span class="dot">•</span>
+      <a class="mini" href="recruiter.html">Recruiter</a>
+      <span class="dot">•</span>
+      <a class="mini" href="ask.html">Ask Me</a>
+    </footer>
+  </main>
+
+  <script src="assets/js/app.js"></script>
+  <script>
+    // Open a collapsed case study when a link targets it.
+    function openTarget(){
+      const el = location.hash && document.getElementById(location.hash.slice(1));
+      const d = el && el.querySelector("details");
+      if (d && !d.open){ d.open = true; el.scrollIntoView(); }
+    }
+    window.addEventListener("hashchange", openTarget);
+    openTarget();
+  </script>
+</body>
+</html>

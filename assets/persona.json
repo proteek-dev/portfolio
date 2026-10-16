@@ -14,6 +14,7 @@
   "qa": [
     {
       "id": "who",
+      "topic": "an introduction to Proteek",
       "triggers": [
         "who are you",
         "introduce yourself",
@@ -29,6 +30,7 @@
     },
     {
       "id": "skills",
+      "topic": "his technical skills",
       "triggers": [
         "skills",
         "technical skills",
@@ -46,8 +48,8 @@
     },
     {
       "id": "experience",
+      "topic": "his work history",
       "triggers": [
-        "experience",
         "work history",
         "career",
         "jobs",
@@ -56,7 +58,6 @@
         "employment",
         "resume",
         "cv",
-        "your experience",
         "tell me about your experience",
         "roles you have had"
       ],
@@ -66,6 +67,7 @@
     },
     {
       "id": "current_role",
+      "topic": "his role at the City of Gold Coast",
       "triggers": [
         "current job",
         "current role",
@@ -82,6 +84,7 @@
     },
     {
       "id": "truuth",
+      "topic": "his work at Truuth",
       "triggers": [
         "truuth",
         "ml engineer",
@@ -96,6 +99,7 @@
     },
     {
       "id": "ici",
+      "topic": "his work at ICI",
       "triggers": [
         "ici",
         "informatic communications",
@@ -110,6 +114,7 @@
     },
     {
       "id": "powerbi",
+      "topic": "Power BI",
       "triggers": [
         "power bi",
         "powerbi",
@@ -127,6 +132,7 @@
     },
     {
       "id": "python",
+      "topic": "Python",
       "triggers": [
         "python",
         "coding",
@@ -146,6 +152,7 @@
     },
     {
       "id": "sql",
+      "topic": "SQL",
       "triggers": [
         "sql",
         "database",
@@ -159,6 +166,7 @@
     },
     {
       "id": "ml",
+      "topic": "his machine learning work",
       "triggers": [
         "machine learning",
         "ml",
@@ -180,6 +188,7 @@
     },
     {
       "id": "nlp",
+      "topic": "his NLP work",
       "triggers": [
         "nlp",
         "natural language",
@@ -194,6 +203,7 @@
     },
     {
       "id": "computer_vision",
+      "topic": "his computer vision work",
       "triggers": [
         "cnn",
         "computer vision",
@@ -209,6 +219,7 @@
     },
     {
       "id": "cloud",
+      "topic": "the cloud platforms he's used",
       "triggers": [
         "aws",
         "azure",
@@ -222,11 +233,12 @@
         "sagemaker"
       ],
       "response": [
-        "On AWS I've used SageMaker, S3, EC2, RDS and ECR. SageMaker served the models at Truuth and Infinite, and SEQ Transit AI runs on EC2, RDS and ECR. On Azure I used Data Factory and Databricks for data processing and workflow automation at Tetra Soft."
+        "On AWS I've used SageMaker, S3, EC2, RDS and ECR. SageMaker served the models at Truuth and Infinite, and SEQ Transit AI runs on EC2, S3 and CloudFront. On Azure I used Data Factory and Databricks for data processing and workflow automation at Tetra Soft."
       ]
     },
     {
       "id": "docker_k8s",
+      "topic": "Docker and deployment",
       "triggers": [
         "docker",
         "kubernetes",
@@ -242,6 +254,7 @@
     },
     {
       "id": "projects",
+      "topic": "his projects",
       "triggers": [
         "projects",
         "builds",
@@ -257,6 +270,7 @@
     },
     {
       "id": "seq_transit",
+      "topic": "SEQ Transit AI",
       "triggers": [
         "seq transit",
         "seq transit ai",
@@ -270,11 +284,12 @@
         "brisbane"
       ],
       "response": [
-        "SEQ Transit AI predicts delays on the Gold Coast to Brisbane corridor. Stop-level delay data isn't published anywhere, so I built the sensor first: an EC2 archiver polling the GTFS-Realtime feed every five minutes, giving 156 million rows across 46 days. An XGBoost model on that archive reached a mean absolute error of 1.957 minutes, against a 2.486 minute baseline. When it meets an unfamiliar stop, I force the confidence label to Low, because a wrong answer that looks confident is worse than no answer. It runs on AWS EC2, RDS and ECR. The code is at github.com/proteek-dev/Transit-AI."
+        "SEQ Transit AI predicts delays on the Gold Coast to Brisbane corridor. TransLink publishes system-wide monthly on-time averages, but no stop-level or per-line delay history, so I built the sensor first: an archiver on EC2 polls the GTFS-Realtime feeds every five minutes and stores them in S3, which gave me 156 million rows across 46 days. An XGBoost model trained on that archive has a test MAE of 1.957 minutes against a 2.486-minute naive baseline, a 21.3% improvement. When it meets a stop it hasn't seen in training, it forces the confidence label to Low, because a wrong answer that looks confident is worse than no answer. It runs on AWS (EC2, S3, CloudFront) with a FastAPI back end and a Leaflet map. Try it at d17e9wvem3lbaq.cloudfront.net. The code is at github.com/proteek-dev/Transit-AI."
       ]
     },
     {
       "id": "scheme_tool",
+      "topic": "the Automated Scheme Research Tool",
       "triggers": [
         "scheme",
         "scheme research",
@@ -286,11 +301,12 @@
         "sentencetransformers"
       ],
       "response": [
-        "The Automated Scheme Research Tool is a retrieval-augmented document assistant. Government schemes go unused because the information sits in long PDFs nobody reads. The tool ingests source URLs, summarises eligibility, benefits and application steps, and lets people ask questions. It uses LangChain, SentenceTransformers embeddings, a FAISS index, DistilBERT for question answering and a Streamlit chat interface. It runs on free Hugging Face models first, with OpenAI as an optional upgrade. The code is at github.com/proteek-dev/ASRT, and there's a write-up on my Medium."
+        "The Automated Scheme Research Tool is a retrieval-augmented assistant. Government schemes go unused because the details sit in long pages nobody reads. You give it scheme URLs, LangChain loads the pages, SentenceTransformers embeds them, and a FAISS index finds the passage closest to your question. DistilBERT extracts the answer, and the Streamlit chat shows it with its source URL and a short summary. It runs on free Hugging Face models, because a tool that only works with a paid API key isn't much use to the organisations that need it most. The code is at github.com/proteek-dev/ASRT, and there's a write-up on my Medium."
       ]
     },
     {
       "id": "maternal_health",
+      "topic": "Maternal Health and Early Outbreak Warning",
       "triggers": [
         "maternal",
         "maternal health",
@@ -308,6 +324,7 @@
     },
     {
       "id": "hcl",
+      "topic": "his work at HCL",
       "triggers": [
         "hcl",
         "hcl technologies",
@@ -323,6 +340,7 @@
     },
     {
       "id": "tetra_soft",
+      "topic": "his work at Tetra Soft",
       "triggers": [
         "tetra",
         "tetra soft",
@@ -337,6 +355,7 @@
     },
     {
       "id": "infinite",
+      "topic": "his work at Infinite Computer Solutions",
       "triggers": [
         "infinite",
         "infinite computer solutions",
@@ -350,6 +369,7 @@
     },
     {
       "id": "llm",
+      "topic": "generative AI and LLMs",
       "triggers": [
         "llm",
         "langchain",
@@ -371,6 +391,7 @@
     },
     {
       "id": "about_chat",
+      "topic": "how this chat works",
       "triggers": [
         "how does this chat work",
         "how does this work",
@@ -382,7 +403,9 @@
         "is this ai",
         "chatbot",
         "is this chatgpt",
-        "who wrote this"
+        "who wrote this",
+        "real ai",
+        "are you a real"
       ],
       "response": [
         "This chat is scripted. It matches keywords in your question to answers Proteek wrote from his CV. There's no AI model behind it, so if your question isn't covered, email him at proteeksanyal1994@gmail.com."
@@ -390,6 +413,7 @@
     },
     {
       "id": "education",
+      "topic": "his education",
       "triggers": [
         "education",
         "degree",
@@ -406,6 +430,7 @@
     },
     {
       "id": "macquarie",
+      "topic": "Macquarie University",
       "triggers": [
         "macquarie",
         "macquarie university",
@@ -418,6 +443,7 @@
     },
     {
       "id": "contact",
+      "topic": "how to contact him",
       "triggers": [
         "contact",
         "email",
@@ -434,9 +460,9 @@
     },
     {
       "id": "hire",
+      "topic": "his current role and work rights",
       "triggers": [
         "hire",
-        "available",
         "open to work",
         "job",
         "opportunity",
@@ -452,36 +478,24 @@
     },
     {
       "id": "github",
+      "topic": "his code on GitHub",
       "triggers": [
         "github",
         "code repository",
         "open source",
         "repo",
         "repositories",
-        "code samples"
+        "code samples",
+        "see your code",
+        "your code"
       ],
       "response": [
         "My GitHub is github.com/proteek-dev. The code for my own projects is there: SEQ Transit AI, the Automated Scheme Research Tool, and Maternal Health and Early Outbreak Warning. My work projects belong to my employers, so their code isn't public."
       ]
     },
     {
-      "id": "medium",
-      "triggers": [
-        "medium",
-        "blog",
-        "articles",
-        "writing",
-        "write ups",
-        "write-up",
-        "ai governance",
-        "agent permissions"
-      ],
-      "response": [
-        "I write on Medium at proteeksanyal.medium.com. I build AI tools in public and write up what I learn, including AI governance, agent permissions and where the technology should not be trusted. There are write-ups for the Automated Scheme Research Tool and for Maternal Health and Early Outbreak Warning."
-      ]
-    },
-    {
       "id": "work_rights",
+      "topic": "his work rights",
       "triggers": [
         "work rights",
         "working rights",
@@ -497,6 +511,7 @@
     },
     {
       "id": "location",
+      "topic": "where he's based",
       "triggers": [
         "where are you",
         "location",
@@ -512,6 +527,7 @@
     },
     {
       "id": "pyspark",
+      "topic": "PySpark and Databricks",
       "triggers": [
         "pyspark",
         "big data",
@@ -526,6 +542,7 @@
     },
     {
       "id": "motivation",
+      "topic": "why he does this work",
       "triggers": [
         "motivation",
         "passion",
@@ -534,7 +551,13 @@
         "enjoy",
         "why data",
         "why ml",
-        "what drives you"
+        "what drives you",
+        "outside work",
+        "beyond work",
+        "hobbies",
+        "free time",
+        "what do you do outside work",
+        "do outside work"
       ],
       "response": [
         "I build AI tools in public and write up what I learn, partly to stay sharp and mostly because I enjoy it. The transit project started because I got tired of standing at a platform that said arriving now for eleven minutes. At work, what I care about is asking what a team actually needs before deciding what to build."
@@ -542,6 +565,7 @@
     },
     {
       "id": "workstyle",
+      "topic": "how he works",
       "triggers": [
         "agile",
         "scrum",
@@ -558,6 +582,7 @@
     },
     {
       "id": "microsoft_fabric",
+      "topic": "Microsoft Fabric",
       "triggers": [
         "microsoft fabric",
         "fabric",
@@ -567,8 +592,143 @@
       "response": [
         "At the City of Gold Coast I maintain semantic models and data pipelines in Microsoft Fabric, and build the Power BI dashboards and reports on top of them."
       ]
+    },
+    {
+      "id": "hardest_decision",
+      "topic": "the hardest decision on SEQ Transit AI",
+      "triggers": [
+        "hardest decision",
+        "hardest",
+        "toughest decision",
+        "difficult decision",
+        "biggest decision",
+        "key decision",
+        "decision that mattered",
+        "trade off",
+        "tradeoff"
+      ],
+      "response": [
+        "The decision I'd point to is in SEQ Transit AI. When the model meets a stop it hasn't seen in training, it forces the confidence label to Low, even when the prediction looks clean. A wrong answer that looks confident is worse than no answer."
+      ]
+    },
+    {
+      "id": "why_simple_models",
+      "topic": "why the health project uses simple models",
+      "triggers": [
+        "why logistic regression",
+        "logistic regression",
+        "z scores",
+        "z-scores",
+        "simple models",
+        "why simple",
+        "deep learning for the health",
+        "why not deep learning",
+        "explainable",
+        "interpretable"
+      ],
+      "response": [
+        "For Maternal Health and Early Outbreak Warning I used logistic regression and z-score anomaly detection, nothing more sophisticated. A health worker has to be able to understand why a case was flagged, and it has to run on a laptop or low-cost cloud."
+      ]
+    },
+    {
+      "id": "how_data",
+      "topic": "how he collected the transit data",
+      "triggers": [
+        "how did you get the data",
+        "bus data",
+        "transit data",
+        "get the data",
+        "collect the data",
+        "data collection",
+        "collected",
+        "archive",
+        "archiver",
+        "gtfs realtime"
+      ],
+      "response": [
+        "I built the sensor first. TransLink publishes system-wide monthly on-time averages, but no stop-level or per-line delay history. So an archiver on EC2 polls TransLink's GTFS-Realtime feeds every five minutes and stores them in S3, including the tram endpoints the combined feed leaves out. That gave me 156 million rows across 46 days."
+      ]
+    },
+    {
+      "id": "limits",
+      "topic": "what his projects don't do yet",
+      "triggers": [
+        "limits",
+        "limitations",
+        "missing",
+        "what doesn't it do",
+        "doesn't do",
+        "shortcomings",
+        "do differently",
+        "next steps",
+        "improve"
+      ],
+      "response": [
+        "SEQ Transit AI: tram data is still thin, so tram predictions carry lower confidence. Live delay isn't blended into the production prediction yet; that's the next model version. Ferry is excluded on purpose. The Automated Scheme Research Tool retrieves a single best passage per question, and the summary is a short extract from that passage. Next is categorising schemes by topic and updating the index as new URLs are added. Maternal Health and Early Outbreak Warning is a prototype trained and tested on synthetic data. It hasn't been clinically validated, and encryption, hashed identifiers and bias testing are listed as prerequisites before anyone takes it further."
+      ]
+    },
+    {
+      "id": "partner_offer",
+      "topic": "what he can build for you",
+      "triggers": [
+        "what can you build",
+        "build for me",
+        "build me",
+        "can you build",
+        "work with you",
+        "work together",
+        "help my team",
+        "services"
+      ],
+      "response": [
+        "Reporting people use: requirements first, then Power BI and Microsoft Fabric, with the definitions and business rules written down. Assistants that cite their sources: retrieval over your documents using free models first, and every answer links to where it came from. Predictions with honest confidence: models measured against a baseline, with a confidence label that says Low when it should. If you have a problem like one of these, email me at proteeksanyal1994@gmail.com."
+      ]
+    },
+    {
+      "id": "writing",
+      "topic": "his writing",
+      "triggers": [
+        "medium",
+        "blog",
+        "articles",
+        "article",
+        "writing",
+        "write ups",
+        "write-up",
+        "do you write",
+        "published"
+      ],
+      "response": [
+        "I've written three articles on Medium, at proteeksanyal.medium.com. Should I Leave Now?, about SEQ Transit AI, from August 2026. Building AI for Maternal Health and Early Outbreak Warning, from October 2025. And End-to-end LLM projects using LangChain, OpenAI/Hugging Face and FAISS, from January 2025, which covers the Automated Scheme Research Tool."
+      ]
+    },
+    {
+      "id": "salary_notice",
+      "topic": "salary, notice and availability",
+      "triggers": [
+        "salary",
+        "salary expectations",
+        "pay",
+        "day rate",
+        "hourly rate",
+        "notice period",
+        "notice",
+        "availability",
+        "when can you start",
+        "start date",
+        "why are you leaving",
+        "leaving",
+        "freelance",
+        "available",
+        "freelance work",
+        "available for"
+      ],
+      "response": [
+        "That's best discussed directly. Email me at proteeksanyal1994@gmail.com."
+      ]
     }
   ],
+  "lowConfidence": "I'm not sure I have a good answer for that. The closest thing I know about is <topic>. Want that, or would you rather email Proteek at proteeksanyal1994@gmail.com?",
   "fallback": [
     "I don't have an answer for that. Try asking: What projects have you built? What do you do at the City of Gold Coast? What is SEQ Transit AI? Or email proteeksanyal1994@gmail.com.",
     "That isn't covered here. This guide only answers from Proteek's CV. Try: Tell me about your experience. What are your skills? How does this chat work? For anything else, email proteeksanyal1994@gmail.com.",

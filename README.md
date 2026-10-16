@@ -8,22 +8,22 @@ The portfolio uses a "Lens Portal" concept: visitors choose a viewing mode (lens
 
 ## Lenses
 
-| Lens | Page | Focus |
+| Lens | Page | For |
 |---|---|---|
-| **Looker** | `looker.html` | Orientation — who I am, what I do |
-| **Recruiter** | `recruiter.html` | Skills, experience, impact, credibility |
-| **Developer** | `developer.html` | Architecture, systems thinking, tradeoffs |
-| **Persona** | `persona.html` | AI self, personality, interaction |
+| **Visitor** | `visitor.html` | Anyone curious: who I am, in two minutes |
+| **Recruiter** | `recruiter.html` | Screening: roles, proof, availability |
+| **Partner** | `partner.html` | Someone who might build or pay for something: case studies, how I work |
+| **Ask Me** | `ask.html` | Questions answered from the CV by a scripted guide |
 
 ## Structure
 
 ```
 portfolio/
 ├── index.html              # Lens portal entry point
-├── looker.html             # Looker lens
+├── visitor.html            # Visitor lens
 ├── recruiter.html          # Recruiter lens
-├── developer.html          # Developer lens
-├── persona.html            # Persona lens
+├── partner.html            # Partner lens
+├── ask.html                # Ask Me lens
 ├── assets/
 │   ├── css/
 │   │   ├── base.css        # Shared base styles

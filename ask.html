@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ask Me · Proteek Kumar Sanyal</title>
+  <meta name="description" content="A scripted guide to Proteek Kumar Sanyal&#x27;s work. Ask about his roles, skills and projects, answered from his CV." />
+  <meta name="theme-color" content="#05060a" />
+  <link rel="canonical" href="https://proteek-dev.github.io/portfolio/ask.html" />
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Ask Me · Proteek Kumar Sanyal" />
+  <meta property="og:description" content="A scripted guide to Proteek Kumar Sanyal&#x27;s work. Ask about his roles, skills and projects, answered from his CV." />
+  <meta property="og:url" content="https://proteek-dev.github.io/portfolio/ask.html" />
+  <meta property="og:image" content="https://proteek-dev.github.io/portfolio/assets/img/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Proteek Kumar Sanyal, AI Solutions Analyst | Business &amp; Systems Analyst | Data Analyst" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/mode.css" />
+
+  <link rel="stylesheet" href="assets/css/ask.css" />
+</head>
+<body class="theme theme-ask" data-mode="ask">
+  <div class="bg-aurora"></div>
+  <div class="bg-noise"></div>
+  <div class="vignette"></div>
+  <div class="cursor-glow" id="cursorGlow"></div>
+  <canvas id="starfield" class="starfield" aria-hidden="true"></canvas>
+
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="Back to portal">
+      <span class="brand-dot"></span>
+      <span class="brand-title">PROTEEK <span class="muted">//</span> ASK ME</span>
+      <span class="brand-sub">Questions, answered from my CV</span>
+    </a>
+    <div class="top-actions">
+      <a class="btn" href="visitor.html">Visitor</a>
+      <a class="btn" href="recruiter.html">Recruiter</a>
+      <a class="btn" href="partner.html">Partner</a>
+      <a class="btn" href="assets/Proteek_Sanyal_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="persona-layout">
+
+      <!-- ── Left: Identity ──────────────────────────────────── -->
+      <aside class="identity-panel">
+        <div class="orb-wrap">
+          <div class="orb" id="orb" aria-hidden="true"></div>
+          <div>
+            <h1 class="identity-name">Proteek Kumar Sanyal</h1>
+            <p class="identity-role">AI Solutions Analyst · Data Analyst</p>
+            <div class="status-row">
+              <div class="status-dot" id="statusDot"></div>
+              <span id="statusLabel">Online</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="suggestions-wrap">
+          <p class="suggestions-label">TRY ASKING</p>
+          <div class="suggestions-list" id="suggestList"></div>
+        </div>
+      </aside>
+
+      <!-- ── Right: Chat ─────────────────────────────────────── -->
+      <div class="chat-panel">
+        <div class="messages-area" id="messages" role="log" aria-live="polite" aria-label="Conversation"></div>
+
+        <div class="input-row">
+          <input
+            type="text"
+            id="chatInput"
+            placeholder="Ask about Proteek's work…"
+            autocomplete="off"
+            aria-label="Chat input"
+          />
+          <button class="icon-btn mic" id="micBtn" title="Hold to speak" aria-label="Toggle voice input">🎤</button>
+          <button class="icon-btn send" id="sendBtn" title="Send" aria-label="Send message">↑</button>
+        </div>
+        <p class="voice-hint" id="voiceHint">🎤 click mic to speak &nbsp;·&nbsp; ↑ or Enter to send</p>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/ask-engine.js"></script>
+  <script>
+  (async () => {
+    /* ── Load persona data ───────────────────────────────────── */
+    let P;
+    try {
+      const r = await fetch('assets/persona.json');
+      if (!r.ok) throw new Error(r.status);
+      P = await r.json();
+    } catch (e) {
+      console.error('persona.json failed to load:', e);
+      document.getElementById('messages').innerHTML =
+        '<p style="color:rgba(255,80,80,.8);padding:20px;">Could not load persona data. Make sure assets/persona.json exists.</p>';
+      return;
+    }
+
+    /* ── Elements ────────────────────────────────────────────── */
+    const messagesEl  = document.getElementById('messages');
+    const chatInput   = document.getElementById('chatInput');
+    const sendBtn     = document.getElementById('sendBtn');
+    const micBtn      = document.getElementById('micBtn');
+    const orb         = document.getElementById('orb');
+    const statusDot   = document.getElementById('statusDot');
+    const statusLabel = document.getElementById('statusLabel');
+    const voiceHint   = document.getElementById('voiceHint');
+    const suggestList = document.getElementById('suggestList');
+
+    /* ── Suggestion chips ────────────────────────────────────── */
+    const SUGGESTIONS = [
+      "What was the hardest decision on a project?",
+      "Tell me about SEQ Transit AI",
+      "What can you build for me?",
+      "What's your experience with Power BI?",
+      "How does this chat work?",
+      "How can I contact you?",
+    ];
+    SUGGESTIONS.forEach(s => {
+      const b = document.createElement('button');
+      b.className = 'suggest-btn';
+      b.textContent = s;
+      b.addEventListener('click', () => { chatInput.value = s; handleSend(); });
+      suggestList.appendChild(b);
+    });
+
+    /* ── Rule engine (assets/js/ask-engine.js) ─────────────── */
+    const chatState = {};
+
+    /* ── State helpers ───────────────────────────────────────── */
+    function setOrbState(state) {
+      orb.className       = 'orb' + (state ? ' ' + state : '');
+      statusDot.className = 'status-dot' + (state ? ' ' + state : '');
+      statusLabel.textContent =
+        state === 'listening' ? 'Listening…' :
+        state === 'speaking'  ? 'Speaking…'  : 'Online';
+    }
+
+    /* ── UI builders ─────────────────────────────────────────── */
+    function addMessage(text, role) {
+      const wrap   = document.createElement('div');
+      wrap.className = `message ${role}`;
+
+      const av     = document.createElement('div');
+      av.className = `msg-av ${role === 'ai' ? 'ai-av' : 'user-av'}`;
+      av.textContent = role === 'ai' ? '✦' : 'You';
+
+      const bubble = document.createElement('div');
+      bubble.className = 'msg-bubble';
+      bubble.textContent = text;
+
+      wrap.appendChild(av);
+      wrap.appendChild(bubble);
+      messagesEl.appendChild(wrap);
+      scrollToBottom();
+      return wrap;
+    }
+
+    function showTyping() {
+      const wrap   = document.createElement('div');
+      wrap.className = 'message ai';
+
+      const av = document.createElement('div');
+      av.className = 'msg-av ai-av';
+      av.textContent = '✦';
+
+      const bubble = document.createElement('div');
+      bubble.className = 'msg-bubble';
+
+      const dots = document.createElement('div');
+      dots.className = 'typing-dots';
+      dots.innerHTML = '<span></span><span></span><span></span>';
+      bubble.appendChild(dots);
+
+      wrap.appendChild(av);
+      wrap.appendChild(bubble);
+      messagesEl.appendChild(wrap);
+      scrollToBottom();
+      return wrap;
+    }
+
+    function scrollToBottom() {
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+    }
+
+    /* ── TTS ─────────────────────────────────────────────────── */
+    const synth = window.speechSynthesis;
+    let preferredVoice = null;
+
+    function pickVoice() {
+      const voices = synth.getVoices();
+      const en = voices.filter(v => v.lang.startsWith('en'));
+      preferredVoice =
+        en.find(v => /male/i.test(v.name) && v.lang === 'en-AU') ||
+        en.find(v => /male/i.test(v.name)) ||
+        en.find(v => ['Google UK English Male', 'Daniel', 'Alex', 'Fred', 'Microsoft David', 'Microsoft Mark', 'Microsoft Guy'].some(n => v.name.includes(n))) ||
+        en.find(v => v.lang === 'en-AU') ||
+        en[0] ||
+        null;
+    }
+    if (synth.onvoiceschanged !== undefined) synth.onvoiceschanged = pickVoice;
+    pickVoice();
+
+    function speak(text) {
+      return new Promise(resolve => {
+        if (!synth) { resolve(); return; }
+        synth.cancel();
+        const utt = new SpeechSynthesisUtterance(text);
+        if (preferredVoice) utt.voice = preferredVoice;
+        utt.rate   = 1.0;
+        utt.pitch  = 1.0;
+        utt.volume = 1.0;
+        setOrbState('speaking');
+        const done = () => { setOrbState(''); resolve(); };
+        utt.onend   = done;
+        utt.onerror = done;
+        synth.speak(utt);
+      });
+    }
+
+    /* ── STT ─────────────────────────────────────────────────── */
+    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    let recognition   = null;
+    let isListening   = false;
+
+    if (SR) {
+      recognition = new SR();
+      recognition.lang = 'en-AU';
+      recognition.continuous      = false;
+      recognition.interimResults  = false;
+      recognition.maxAlternatives = 1;
+
+      recognition.onstart = () => {
+        isListening = true;
+        micBtn.classList.add('active');
+        setOrbState('listening');
+        voiceHint.textContent = '🎤 Listening — speak now…';
+        voiceHint.classList.add('active');
+      };
+      recognition.onresult = e => {
+        const transcript = e.results[0][0].transcript.trim();
+        chatInput.value = transcript;
+        stopListening();
+        setTimeout(handleSend, 200);
+      };
+      recognition.onend  = stopListening;
+      recognition.onerror = ev => {
+        stopListening();
+        if (ev.error !== 'no-speech') {
+          voiceHint.textContent = `Voice error: ${ev.error}`;
+        }
+      };
+    } else {
+      micBtn.disabled = true;
+      micBtn.title    = 'Voice not supported — try Chrome or Edge';
+      voiceHint.textContent = '⚠ Voice input not supported in this browser (try Chrome/Edge)';
+    }
+
+    function stopListening() {
+      isListening = false;
+      micBtn.classList.remove('active');
+      if (statusLabel.textContent === 'Listening…') setOrbState('');
+      voiceHint.textContent = '🎤 click mic to speak · ↑ or Enter to send';
+      voiceHint.classList.remove('active');
+    }
+
+    micBtn.addEventListener('click', () => {
+      if (!recognition) return;
+      if (isListening) {
+        recognition.stop();
+      } else {
+        synth?.cancel();
+        recognition.start();
+      }
+    });
+
+    /* ── Send flow ───────────────────────────────────────────── */
+    let busy = false;
+
+    async function handleSend() {
+      const text = chatInput.value.trim();
+      if (!text || busy) return;
+      busy = true;
+      chatInput.value = '';
+
+      addMessage(text, 'user');
+      const typing = showTyping();
+
+      // brief thinking delay
+      await new Promise(r => setTimeout(r, 380 + Math.random() * 520));
+
+      const response = AskEngine.findResponse(P, text, chatState);
+      typing.remove();
+      addMessage(response, 'ai');
+      await speak(response);
+
+      busy = false;
+    }
+
+    sendBtn.addEventListener('click', handleSend);
+    chatInput.addEventListener('keydown', e => {
+      if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSend(); }
+    });
+
+    /* ── Boot greeting ───────────────────────────────────────── */
+    setTimeout(async () => {
+      const greeting = AskEngine.pick(P.greeting);
+      addMessage(greeting, 'ai');
+      await speak(greeting);
+    }, 700);
+
+  })();
+  </script>
+</body>
+</html>
