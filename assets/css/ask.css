@@ -329,3 +329,21 @@
   .suggestions-wrap { width: 100%; }
   .chat-panel { height: 62vh; }
 }
+
+@media (max-width: 640px) {
+  .persona-layout { gap: 12px; grid-template-columns: minmax(0, 1fr); }
+  .identity-panel, .suggestions-wrap, .chat-panel { min-width: 0; }
+  .identity-panel { flex-direction: column; align-items: stretch; gap: 10px; }
+  .orb-wrap { align-items: center; gap: 10px; }
+  .orb { width: 36px; height: 36px; }
+  .orb-wrap > div { display: flex; align-items: center; gap: 12px; min-width: 0; }
+  .identity-name { margin: 0; white-space: nowrap; }
+  .identity-role { display: none; }
+  .suggestions-label { display: none; }
+  .suggestions-list { flex-direction: row; flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; }
+  .suggest-btn { flex-shrink: 0; white-space: nowrap; }
+  .suggest-btn:hover { transform: none; }
+  .chat-panel { height: calc(100dvh - 300px); min-height: 340px; }
+  .input-row { padding: 10px; }
+  #chatInput { flex: 1; min-width: 0; }
+}

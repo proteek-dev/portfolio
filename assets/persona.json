@@ -7,14 +7,14 @@
   "linkedin": "https://www.linkedin.com/in/proteeksanyal/",
   "medium": "https://proteeksanyal.medium.com",
   "greeting": [
-    "Hi. This is a scripted guide to Proteek's work. It answers from his CV, in his words. For anything it can't answer, email proteeksanyal1994@gmail.com.",
-    "Hello. I'm a scripted guide, not an AI. Ask about Proteek's experience, skills or projects and I'll answer from his CV. For anything else, email proteeksanyal1994@gmail.com.",
-    "Hi there. This guide matches your questions to answers Proteek wrote from his CV. Try asking about his roles or projects. For anything else, email proteeksanyal1994@gmail.com."
+    "Hi, I'm a scripted guide to Proteek's work. From here on I answer in his words, from his CV. Ask about my roles, skills or projects, and if I can't answer, email me at proteeksanyal1994@gmail.com.",
+    "Hello. I'm a scripted guide to Proteek's work, with no AI model behind it. From here on I answer in his words, from his CV. If your question isn't covered, email me at proteeksanyal1994@gmail.com.",
+    "Hi there. This is a scripted guide to Proteek's work. From here on I answer in his words, from his CV. Try asking about my roles or projects, or email me at proteeksanyal1994@gmail.com."
   ],
   "qa": [
     {
       "id": "who",
-      "topic": "an introduction to Proteek",
+      "topic": "who I am",
       "triggers": [
         "who are you",
         "introduce yourself",
@@ -30,7 +30,7 @@
     },
     {
       "id": "skills",
-      "topic": "his technical skills",
+      "topic": "my technical skills",
       "triggers": [
         "skills",
         "technical skills",
@@ -48,7 +48,7 @@
     },
     {
       "id": "experience",
-      "topic": "his work history",
+      "topic": "my work history",
       "triggers": [
         "work history",
         "career",
@@ -67,7 +67,7 @@
     },
     {
       "id": "current_role",
-      "topic": "his role at the City of Gold Coast",
+      "topic": "my role at the City of Gold Coast",
       "triggers": [
         "current job",
         "current role",
@@ -84,7 +84,7 @@
     },
     {
       "id": "truuth",
-      "topic": "his work at Truuth",
+      "topic": "my work at Truuth",
       "triggers": [
         "truuth",
         "ml engineer",
@@ -99,7 +99,7 @@
     },
     {
       "id": "ici",
-      "topic": "his work at ICI",
+      "topic": "my work at ICI",
       "triggers": [
         "ici",
         "informatic communications",
@@ -166,7 +166,7 @@
     },
     {
       "id": "ml",
-      "topic": "his machine learning work",
+      "topic": "my machine learning work",
       "triggers": [
         "machine learning",
         "ml",
@@ -188,7 +188,7 @@
     },
     {
       "id": "nlp",
-      "topic": "his NLP work",
+      "topic": "my NLP work",
       "triggers": [
         "nlp",
         "natural language",
@@ -203,7 +203,7 @@
     },
     {
       "id": "computer_vision",
-      "topic": "his computer vision work",
+      "topic": "my computer vision work",
       "triggers": [
         "cnn",
         "computer vision",
@@ -219,7 +219,7 @@
     },
     {
       "id": "cloud",
-      "topic": "the cloud platforms he's used",
+      "topic": "the cloud platforms I've used",
       "triggers": [
         "aws",
         "azure",
@@ -254,7 +254,7 @@
     },
     {
       "id": "projects",
-      "topic": "his projects",
+      "topic": "my projects",
       "triggers": [
         "projects",
         "builds",
@@ -324,7 +324,7 @@
     },
     {
       "id": "hcl",
-      "topic": "his work at HCL",
+      "topic": "my work at HCL",
       "triggers": [
         "hcl",
         "hcl technologies",
@@ -340,7 +340,7 @@
     },
     {
       "id": "tetra_soft",
-      "topic": "his work at Tetra Soft",
+      "topic": "my work at Tetra Soft",
       "triggers": [
         "tetra",
         "tetra soft",
@@ -355,7 +355,7 @@
     },
     {
       "id": "infinite",
-      "topic": "his work at Infinite Computer Solutions",
+      "topic": "my work at Infinite Computer Solutions",
       "triggers": [
         "infinite",
         "infinite computer solutions",
@@ -408,12 +408,12 @@
         "are you a real"
       ],
       "response": [
-        "This chat is scripted. It matches keywords in your question to answers Proteek wrote from his CV. There's no AI model behind it, so if your question isn't covered, email him at proteeksanyal1994@gmail.com."
+        "This chat is scripted. It matches keywords in your question to answers I wrote from my CV. There's no AI model behind it, so if your question isn't covered, email me at proteeksanyal1994@gmail.com."
       ]
     },
     {
       "id": "education",
-      "topic": "his education",
+      "topic": "my education",
       "triggers": [
         "education",
         "degree",
@@ -443,7 +443,7 @@
     },
     {
       "id": "contact",
-      "topic": "how to contact him",
+      "topic": "how to contact me",
       "triggers": [
         "contact",
         "email",
@@ -460,7 +460,7 @@
     },
     {
       "id": "hire",
-      "topic": "his current role and work rights",
+      "topic": "my current role and work rights",
       "triggers": [
         "hire",
         "open to work",
@@ -478,7 +478,7 @@
     },
     {
       "id": "github",
-      "topic": "his code on GitHub",
+      "topic": "my code on GitHub",
       "triggers": [
         "github",
         "code repository",
@@ -495,7 +495,7 @@
     },
     {
       "id": "work_rights",
-      "topic": "his work rights",
+      "topic": "my work rights",
       "triggers": [
         "work rights",
         "working rights",
@@ -511,7 +511,7 @@
     },
     {
       "id": "location",
-      "topic": "where he's based",
+      "topic": "where I'm based",
       "triggers": [
         "where are you",
         "location",
@@ -542,7 +542,7 @@
     },
     {
       "id": "motivation",
-      "topic": "why he does this work",
+      "topic": "why I do this work",
       "triggers": [
         "motivation",
         "passion",
@@ -565,7 +565,7 @@
     },
     {
       "id": "workstyle",
-      "topic": "how he works",
+      "topic": "how I work",
       "triggers": [
         "agile",
         "scrum",
@@ -632,7 +632,7 @@
     },
     {
       "id": "how_data",
-      "topic": "how he collected the transit data",
+      "topic": "how I collected the transit data",
       "triggers": [
         "how did you get the data",
         "bus data",
@@ -651,7 +651,7 @@
     },
     {
       "id": "limits",
-      "topic": "what his projects don't do yet",
+      "topic": "what my projects don't do yet",
       "triggers": [
         "limits",
         "limitations",
@@ -669,7 +669,7 @@
     },
     {
       "id": "partner_offer",
-      "topic": "what he can build for you",
+      "topic": "what I can build for you",
       "triggers": [
         "what can you build",
         "build for me",
@@ -686,7 +686,7 @@
     },
     {
       "id": "writing",
-      "topic": "his writing",
+      "topic": "my writing",
       "triggers": [
         "medium",
         "blog",
@@ -728,10 +728,10 @@
       ]
     }
   ],
-  "lowConfidence": "I'm not sure I have a good answer for that. The closest thing I know about is <topic>. Want that, or would you rather email Proteek at proteeksanyal1994@gmail.com?",
+  "lowConfidence": "I'm not sure I have a good answer for that. The closest thing I know about is <topic>. Want that, or would you rather email me at proteeksanyal1994@gmail.com?",
   "fallback": [
     "I don't have an answer for that. Try asking: What projects have you built? What do you do at the City of Gold Coast? What is SEQ Transit AI? Or email proteeksanyal1994@gmail.com.",
-    "That isn't covered here. This guide only answers from Proteek's CV. Try: Tell me about your experience. What are your skills? How does this chat work? For anything else, email proteeksanyal1994@gmail.com.",
+    "That isn't covered here. I only answer from my CV here. Try: Tell me about your experience. What are your skills? How does this chat work? For anything else, email proteeksanyal1994@gmail.com.",
     "I can't answer that one. Try: What did you do at Truuth? Tell me about the Automated Scheme Research Tool. Do you have work rights in Australia? Or email proteeksanyal1994@gmail.com."
   ]
 }
