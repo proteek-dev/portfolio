@@ -249,7 +249,7 @@
         "deployment"
       ],
       "response": [
-        "Docker, Kubernetes, CI/CD, GitHub Actions and REST APIs are in my toolkit. In production I've shipped models as services: liveness detection as microservices on AWS SageMaker at Truuth, medical imaging models behind Flask services at Infinite, and ASP.NET and C# microservices for OCR document parsing at HCL. For SEQ Transit AI I set up a CI/CD pipeline with OIDC and SSM."
+        "Docker, Kubernetes, CI/CD, GitHub Actions and REST APIs are in my toolkit. In production I've shipped models as services: liveness detection as microservices on AWS SageMaker at Truuth, medical imaging models behind Flask services at Infinite, and ASP.NET and C# microservices for OCR document parsing at HCL."
       ]
     },
     {
