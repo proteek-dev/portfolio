@@ -109,7 +109,7 @@
   font-family: var(--mono);
   font-size: 10px;
   letter-spacing: 1.5px;
-  color: rgba(255,255,255,.40);
+  color: var(--txt-3);
   margin-bottom: 10px;
 }
 .suggestions-list {
@@ -124,7 +124,7 @@
   border-radius: 13px;
   border: 1px solid rgba(180,120,255,.18);
   background: rgba(180,120,255,.07);
-  color: rgba(255,255,255,.80);
+  color: var(--txt-2);
   font-family: var(--sans);
   font-size: 12.5px;
   line-height: 1.4;
@@ -134,7 +134,7 @@
   background: rgba(180,120,255,.16);
   border-color: rgba(180,120,255,.38);
   transform: translateX(3px);
-  color: rgba(255,255,255,.95);
+  color: var(--txt);
 }
 
 /* ── Chat Panel ─────────────────────────────────────────── */
@@ -190,7 +190,7 @@
   font-family: var(--mono);
   font-size: 9px;
   letter-spacing: .5px;
-  color: rgba(255,255,255,.60);
+  color: var(--txt-3);
 }
 
 .msg-bubble {
@@ -202,13 +202,13 @@
   background: rgba(180,120,255,.09);
   border: 1px solid rgba(180,120,255,.17);
   border-radius: 4px 16px 16px 16px;
-  color: rgba(255,255,255,.88);
+  color: var(--txt-2);
 }
 .message.user .msg-bubble {
   background: rgba(130,170,255,.10);
   border: 1px solid rgba(130,170,255,.18);
   border-radius: 16px 4px 16px 16px;
-  color: rgba(255,255,255,.88);
+  color: var(--txt-2);
 }
 
 /* Typing dots */
@@ -244,17 +244,17 @@
 #chatInput {
   flex: 1;
   background: rgba(255,255,255,.055);
-  border: 1px solid rgba(255,255,255,.13);
+  border: 1px solid var(--line-2);
   border-radius: 13px;
   padding: 11px 15px;
-  color: rgba(255,255,255,.92);
+  color: var(--txt);
   font-family: var(--sans);
   font-size: 13.5px;
   outline: none;
   transition: border-color .18s;
 }
 #chatInput:focus        { border-color: rgba(180,120,255,.45); }
-#chatInput::placeholder { color: rgba(255,255,255,.32); }
+#chatInput::placeholder { color: var(--txt-3); }
 
 .icon-btn {
   width: 44px;
@@ -262,7 +262,7 @@
   border-radius: 13px;
   border: 1px solid rgba(255,255,255,.13);
   background: rgba(255,255,255,.06);
-  color: rgba(255,255,255,.65);
+  color: var(--txt-3);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -304,7 +304,7 @@
   padding: 4px 0 6px;
   font-family: var(--mono);
   font-size: 10.5px;
-  color: rgba(255,255,255,.30);
+  color: var(--txt-3);
   transition: color .2s;
 }
 .voice-hint.active { color: rgba(120,255,210,.65); }
@@ -347,3 +347,12 @@
   .input-row { padding: 10px; }
   #chatInput { flex: 1; min-width: 0; }
 }
+
+/* Keyboard focus */
+#chatInput:focus-visible{ outline: 2px solid var(--accent); outline-offset: 2px; }
+.suggest-btn{ scroll-margin-inline: 16px; }
+
+/* Messages fade in; the greeting is in the DOM from load */
+.message{ animation: msgIn .35s ease both; }
+@keyframes msgIn{ from{ opacity: 0; transform: translateY(6px); } }
+@media (prefers-reduced-motion: reduce){ .message{ animation: none; } }

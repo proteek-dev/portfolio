@@ -23,12 +23,14 @@
   <link rel="stylesheet" href="assets/css/mode.css" />
 </head>
 <body class="theme theme-partner" data-mode="partner">
+  <a class="btn skip-link" href="#main">Skip to content</a>
   <div class="bg-aurora"></div>
   <div class="bg-noise"></div>
   <div class="vignette"></div>
   <div class="cursor-glow" id="cursorGlow"></div>
   <canvas id="starfield" class="starfield" aria-hidden="true"></canvas>
 
+  <!-- @gen:topbar -->
   <header class="topbar">
     <a class="brand" href="index.html" aria-label="Back to portal">
       <span class="brand-dot"></span>
@@ -42,8 +44,9 @@
       <a class="btn" href="assets/Proteek_Sanyal_Resume.pdf" target="_blank" rel="noopener">Resume</a>
     </div>
   </header>
+  <!-- @end -->
 
-  <main class="page">
+  <main id="main" class="page">
     <section class="hero compact">
       <div class="hero-left">
         <div class="kicker">PARTNER</div>
@@ -189,6 +192,7 @@
 
     <section class="section">
       <h2>Built at work</h2>
+      <!-- @gen:work-projects -->
       <p class="muted">Production work for employers. The code belongs to them, so there are no links.</p>
 
       <div class="grid2">
@@ -199,7 +203,6 @@
           </p>
           <div class="chips"><span class="chip">MobileNet</span><span class="chip">AWS SageMaker</span><span class="chip">Microservices</span></div>
         </article>
-
         <article class="panel">
           <h3>Medical Image Analysis Platform (Infinite Computer Solutions, 2021)</h3>
           <p>
@@ -207,7 +210,6 @@
           </p>
           <div class="chips"><span class="chip">CNN</span><span class="chip">Flask</span><span class="chip">AWS SageMaker</span></div>
         </article>
-
         <article class="panel">
           <h3>Evacuation Risk Assessment (Tetra Soft, 2020–21)</h3>
           <p>
@@ -215,7 +217,6 @@
           </p>
           <div class="chips"><span class="chip">Power BI</span><span class="chip">Azure Data Factory</span><span class="chip">Databricks</span></div>
         </article>
-
         <article class="panel">
           <h3>Sentiment Analysis with BERT and OCR Document Parsing (HCL, 2017–20)</h3>
           <p>
@@ -225,16 +226,19 @@
           <div class="chips"><span class="chip">BERT</span><span class="chip">OCR</span><span class="chip">Python</span><span class="chip">ASP.NET</span><span class="chip">C#</span></div>
         </article>
       </div>
+      <!-- @end -->
     </section>
 
     <section class="section">
       <h2>Writing</h2>
       <div class="panel">
+        <!-- @gen:writing -->
         <ul class="writing">
           <li><a href="https://proteeksanyal.medium.com/should-i-leave-now-building-a-weather-app-for-my-commute-a85a3ef9b6ab" target="_blank" rel="noopener">Should I Leave Now? (SEQ Transit AI)</a> <span class="muted">Aug 2026</span></li>
           <li><a href="https://proteeksanyal.medium.com/building-ai-for-maternal-health-early-outbreak-warning-open-source-mvp-b2aaf83bc8e3" target="_blank" rel="noopener">Building AI for Maternal Health &amp; Early Outbreak Warning</a> <span class="muted">Oct 2025</span></li>
           <li><a href="https://proteeksanyal.medium.com/end-to-end-llm-projects-using-langchain-openai-huggingface-and-faissv-3a00ce01a273" target="_blank" rel="noopener">End-to-end LLM projects using LangChain, OpenAI/Hugging Face and FAISS</a> <span class="muted">Jan 2025</span></li>
         </ul>
+        <!-- @end -->
       </div>
     </section>
 
@@ -242,28 +246,33 @@
       <h2>Start a conversation</h2>
       <div class="panel">
         <p>If you have a problem like one of these, tell me about it.</p>
+        <!-- @gen:contact:cta -->
         <div class="read-actions">
           <a class="btn" href="mailto:proteeksanyal1994@gmail.com">Email me</a>
           <a class="mini" href="mailto:proteeksanyal1994@gmail.com">proteeksanyal1994@gmail.com</a>
-          <span class="dot">•</span>
+          <span class="dot" aria-hidden="true">•</span>
           <a class="mini" href="https://github.com/proteek-dev" target="_blank" rel="noopener">GitHub</a>
-          <span class="dot">•</span>
+          <span class="dot" aria-hidden="true">•</span>
           <a class="mini" href="https://www.linkedin.com/in/proteeksanyal/" target="_blank" rel="noopener">LinkedIn</a>
         </div>
+        <!-- @end -->
       </div>
     </section>
 
+    <!-- @gen:footer -->
     <footer class="footer">
       <a class="mini" href="index.html">← Back to portal</a>
-      <span class="dot">•</span>
+      <span class="dot" aria-hidden="true">•</span>
       <a class="mini" href="visitor.html">Visitor</a>
-      <span class="dot">•</span>
+      <span class="dot" aria-hidden="true">•</span>
       <a class="mini" href="recruiter.html">Recruiter</a>
-      <span class="dot">•</span>
+      <span class="dot" aria-hidden="true">•</span>
       <a class="mini" href="ask.html">Ask Me</a>
     </footer>
+    <!-- @end -->
   </main>
 
+  <script src="assets/js/motion.js"></script>
   <script src="assets/js/app.js"></script>
   <script>
     // Open a collapsed case study when a link targets it.

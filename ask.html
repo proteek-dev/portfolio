@@ -25,12 +25,14 @@
   <link rel="stylesheet" href="assets/css/ask.css" />
 </head>
 <body class="theme theme-ask" data-mode="ask">
+  <a class="btn skip-link" href="#main">Skip to content</a>
   <div class="bg-aurora"></div>
   <div class="bg-noise"></div>
   <div class="vignette"></div>
   <div class="cursor-glow" id="cursorGlow"></div>
   <canvas id="starfield" class="starfield" aria-hidden="true"></canvas>
 
+  <!-- @gen:topbar -->
   <header class="topbar">
     <a class="brand" href="index.html" aria-label="Back to portal">
       <span class="brand-dot"></span>
@@ -44,8 +46,9 @@
       <a class="btn" href="assets/Proteek_Sanyal_Resume.pdf" target="_blank" rel="noopener">Resume</a>
     </div>
   </header>
+  <!-- @end -->
 
-  <main class="page">
+  <main id="main" class="page">
     <div class="persona-layout">
 
       <!-- ── Left: Identity ──────────────────────────────────── -->
@@ -76,12 +79,13 @@
           <input
             type="text"
             id="chatInput"
-            placeholder="Ask about Proteek's work…"
+            placeholder="Ask me about my work…"
             autocomplete="off"
             aria-label="Chat input"
+            disabled
           />
           <button class="icon-btn mic" id="micBtn" title="Hold to speak" aria-label="Toggle voice input">🎤</button>
-          <button class="icon-btn send" id="sendBtn" title="Send" aria-label="Send message">↑</button>
+          <button class="icon-btn send" id="sendBtn" title="Send" aria-label="Send message" disabled>↑</button>
         </div>
         <p class="voice-hint" id="voiceHint">🎤 click mic to speak &nbsp;·&nbsp; ↑ or Enter to send</p>
       </div>
@@ -89,6 +93,7 @@
     </div>
   </main>
 
+  <script src="assets/js/motion.js"></script>
   <script src="assets/js/app.js"></script>
   <script src="assets/js/ask-engine.js"></script>
   <script>
@@ -230,6 +235,7 @@
 
     /* ── STT ─────────────────────────────────────────────────── */
     const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const MIC_HINT = `🎤 ${matchMedia('(pointer: coarse)').matches ? 'tap' : 'click'} mic to speak · ↑ or Enter to send`;
     let recognition   = null;
     let isListening   = false;
 
@@ -239,6 +245,7 @@
       recognition.continuous      = false;
       recognition.interimResults  = false;
       recognition.maxAlternatives = 1;
+      voiceHint.textContent = MIC_HINT;
 
       recognition.onstart = () => {
         isListening = true;
@@ -261,16 +268,16 @@
         }
       };
     } else {
-      micBtn.disabled = true;
-      micBtn.title    = 'Voice not supported — try Chrome or Edge';
-      voiceHint.textContent = '⚠ Voice input not supported in this browser (try Chrome/Edge)';
+      // No speech recognition: hide the mic rather than show a button that does nothing
+      micBtn.style.display = 'none';
+      voiceHint.textContent = '↑ or Enter to send';
     }
 
     function stopListening() {
       isListening = false;
       micBtn.classList.remove('active');
       if (statusLabel.textContent === 'Listening…') setOrbState('');
-      voiceHint.textContent = '🎤 click mic to speak · ↑ or Enter to send';
+      voiceHint.textContent = MIC_HINT;
       voiceHint.classList.remove('active');
     }
 
@@ -286,11 +293,13 @@
 
     /* ── Send flow ───────────────────────────────────────────── */
     let busy = false;
+    let userHasSent = false;
 
     async function handleSend() {
       const text = chatInput.value.trim();
       if (!text || busy) return;
       busy = true;
+      userHasSent = true;
       chatInput.value = '';
 
       addMessage(text, 'user');
@@ -313,11 +322,13 @@
     });
 
     /* ── Boot greeting ───────────────────────────────────────── */
-    setTimeout(async () => {
-      const greeting = AskEngine.pick(P.greeting);
-      addMessage(greeting, 'ai');
-      await speak(greeting);
-    }, 700);
+    // Render now so it is always the first message, then enable the input.
+    // Speech starts a moment later, and is skipped if the visitor has already asked something.
+    const greeting = AskEngine.pick(P.greeting);
+    addMessage(greeting, 'ai');
+    chatInput.disabled = false;
+    sendBtn.disabled = false;
+    setTimeout(() => { if (!userHasSent) speak(greeting); }, 700);
 
   })();
   </script>

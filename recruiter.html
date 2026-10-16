@@ -23,12 +23,14 @@
   <link rel="stylesheet" href="assets/css/mode.css" />
 </head>
 <body class="theme theme-recruiter" data-mode="recruiter">
+  <a class="btn skip-link" href="#main">Skip to content</a>
   <div class="bg-aurora"></div>
   <div class="bg-noise"></div>
   <div class="vignette"></div>
   <div class="cursor-glow" id="cursorGlow"></div>
   <canvas id="starfield" class="starfield" aria-hidden="true"></canvas>
 
+  <!-- @gen:topbar -->
   <header class="topbar">
     <a class="brand" href="index.html" aria-label="Back to portal">
       <span class="brand-dot"></span>
@@ -42,8 +44,9 @@
       <a class="btn" href="assets/Proteek_Sanyal_Resume.pdf" target="_blank" rel="noopener">Resume</a>
     </div>
   </header>
+  <!-- @end -->
 
-  <main class="page">
+  <main id="main" class="page">
     <section class="hero compact">
       <div class="hero-left">
         <div class="kicker">RECRUITER</div>
@@ -69,66 +72,52 @@
             </ul>
           </div>
         </div>
+        <!-- @gen:contact:resume -->
         <div class="read-actions">
           <a class="btn" href="assets/Proteek_Sanyal_Resume.pdf" download>Download resume</a>
           <a class="btn" href="mailto:proteeksanyal1994@gmail.com">Email me</a>
           <a class="mini" href="mailto:proteeksanyal1994@gmail.com">proteeksanyal1994@gmail.com</a>
         </div>
+        <!-- @end -->
       </div>
     </section>
 
     <section class="section">
       <h2>Technical skills</h2>
+      <!-- @gen:skills -->
       <div class="grid2">
         <div class="panel">
           <div class="kicker">GENERATIVE AI &amp; AUTOMATION</div>
-          <div class="chips">
-            <span class="chip">Anthropic Claude</span><span class="chip">OpenAI ChatGPT</span><span class="chip">Microsoft Copilot</span><span class="chip">Prompt engineering</span>
-            <span class="chip">LangChain</span><span class="chip">Retrieval-augmented generation (RAG)</span><span class="chip">FAISS vector search</span><span class="chip">Hugging Face Transformers</span>
-            <span class="chip">Embeddings</span><span class="chip">BERT</span><span class="chip">Streamlit</span><span class="chip">Python scripting for workflow automation</span>
-          </div>
+          <div class="chips"><span class="chip">Anthropic Claude</span><span class="chip">OpenAI ChatGPT</span><span class="chip">Microsoft Copilot</span><span class="chip">Prompt engineering</span><span class="chip">LangChain</span><span class="chip">Retrieval-augmented generation (RAG)</span><span class="chip">FAISS vector search</span><span class="chip">Hugging Face Transformers</span><span class="chip">Embeddings</span><span class="chip">BERT</span><span class="chip">Streamlit</span><span class="chip">Python scripting for workflow automation</span></div>
         </div>
         <div class="panel">
           <div class="kicker">MICROSOFT PLATFORM</div>
-          <div class="chips">
-            <span class="chip">Power BI (DAX, Power Query / M)</span><span class="chip">Microsoft Fabric</span><span class="chip">Semantic and dimensional modelling</span>
-            <span class="chip">Microsoft 365</span><span class="chip">SQL Server</span><span class="chip">Azure (Data Factory, Databricks)</span>
-          </div>
+          <div class="chips"><span class="chip">Power BI (DAX, Power Query / M)</span><span class="chip">Microsoft Fabric</span><span class="chip">Semantic and dimensional modelling</span><span class="chip">Microsoft 365</span><span class="chip">SQL Server</span><span class="chip">Azure (Data Factory, Databricks)</span></div>
         </div>
         <div class="panel">
           <div class="kicker">ANALYSIS &amp; DELIVERY</div>
-          <div class="chips">
-            <span class="chip">Requirements gathering</span><span class="chip">Process and workflow design</span><span class="chip">Solution documentation</span>
-            <span class="chip">UAT and user testing</span><span class="chip">Stakeholder engagement</span><span class="chip">Agile delivery</span><span class="chip">Jira and Confluence</span>
-          </div>
+          <div class="chips"><span class="chip">Requirements gathering</span><span class="chip">Process and workflow design</span><span class="chip">Solution documentation</span><span class="chip">UAT and user testing</span><span class="chip">Stakeholder engagement</span><span class="chip">Agile delivery</span><span class="chip">Jira and Confluence</span></div>
         </div>
         <div class="panel">
           <div class="kicker">PROGRAMMING</div>
-          <div class="chips">
-            <span class="chip">Python</span><span class="chip">SQL</span><span class="chip">C#</span><span class="chip">PySpark</span>
-            <span class="chip">R</span><span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">Scikit-Learn</span>
-          </div>
+          <div class="chips"><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">C#</span><span class="chip">PySpark</span><span class="chip">R</span><span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">Scikit-Learn</span></div>
         </div>
         <div class="panel">
           <div class="kicker">MACHINE LEARNING</div>
-          <div class="chips">
-            <span class="chip">CNNs and computer vision</span><span class="chip">Natural language processing (NLP)</span><span class="chip">XGBoost</span>
-            <span class="chip">TensorFlow</span><span class="chip">PyTorch</span>
-          </div>
+          <div class="chips"><span class="chip">CNNs and computer vision</span><span class="chip">Natural language processing (NLP)</span><span class="chip">XGBoost</span><span class="chip">TensorFlow</span><span class="chip">PyTorch</span></div>
         </div>
         <div class="panel">
           <div class="kicker">CLOUD &amp; DEVOPS</div>
-          <div class="chips">
-            <span class="chip">AWS (SageMaker, S3, EC2, RDS, ECR)</span><span class="chip">Docker</span><span class="chip">Kubernetes</span>
-            <span class="chip">CI/CD</span><span class="chip">GitHub Actions</span><span class="chip">REST APIs</span>
-          </div>
+          <div class="chips"><span class="chip">AWS (SageMaker, S3, EC2, RDS, ECR)</span><span class="chip">Docker</span><span class="chip">Kubernetes</span><span class="chip">CI/CD</span><span class="chip">GitHub Actions</span><span class="chip">REST APIs</span></div>
         </div>
       </div>
+      <!-- @end -->
     </section>
 
     <section class="section">
       <h2>Experience</h2>
       <p class="section-note muted">Work projects belong to the employers, so there's no public code.</p>
+      <!-- @gen:roles -->
       <div class="timeline">
         <div class="panel">
           <h3>Data Analyst, City of Gold Coast (Jun 2025 – Present)</h3>
@@ -137,11 +126,8 @@
             <li>Build Power BI dashboards with DAX and Power Query on semantic models and data pipelines I maintain in Microsoft Fabric.</li>
             <li>Write Python to automate manual data handling, and document data definitions and business rules to support data governance.</li>
           </ul>
-          <div class="chips">
-            <span class="chip">Power BI</span><span class="chip">DAX</span><span class="chip">Power Query</span><span class="chip">Microsoft Fabric</span><span class="chip">Python</span>
-          </div>
+          <div class="chips"><span class="chip">Power BI</span><span class="chip">DAX</span><span class="chip">Power Query</span><span class="chip">Microsoft Fabric</span><span class="chip">Python</span></div>
         </div>
-
         <div class="panel">
           <h3>Data Engineer, ICI (Mar 2025 – May 2025)</h3>
           <ul>
@@ -150,7 +136,6 @@
             <li>Produced weekly and monthly performance reporting for Australian and international markets.</li>
           </ul>
         </div>
-
         <div class="panel">
           <h3>Machine Learning Engineer (Internship), Truuth (Jul 2023 – Nov 2023)</h3>
           <ul>
@@ -160,7 +145,6 @@
           </ul>
           <div class="chips"><span class="chip">MobileNet</span><span class="chip">AWS SageMaker</span><span class="chip">AWS S3</span></div>
         </div>
-
         <div class="panel">
           <h3>Data Scientist, Infinite Computer Solutions (Aug 2021 – Dec 2021)</h3>
           <ul>
@@ -169,7 +153,6 @@
           </ul>
           <div class="chips"><span class="chip">CNN</span><span class="chip">Flask</span><span class="chip">AWS SageMaker</span></div>
         </div>
-
         <div class="panel">
           <h3>Data Scientist, Tetra Soft India (Dec 2020 – Jul 2021)</h3>
           <ul>
@@ -178,7 +161,6 @@
           </ul>
           <div class="chips"><span class="chip">Power BI</span><span class="chip">Azure Data Factory</span><span class="chip">Databricks</span></div>
         </div>
-
         <div class="panel">
           <h3>Software Engineer, HCL Technologies (Feb 2017 – Nov 2020)</h3>
           <ul>
@@ -189,17 +171,20 @@
           <div class="chips"><span class="chip">BERT</span><span class="chip">OCR</span><span class="chip">Python</span><span class="chip">ASP.NET</span><span class="chip">C#</span></div>
         </div>
       </div>
+      <!-- @end -->
     </section>
 
     <section class="section">
       <h2>Built on my own</h2>
       <div class="timeline">
         <div class="panel">
+          <!-- @gen:personal-projects -->
           <ul>
             <li><strong>SEQ Transit AI:</strong> delay prediction for the Gold Coast to Brisbane corridor, using an XGBoost model on a GTFS-Realtime archive I collected on AWS. <span class="proof-links"><a href="https://github.com/proteek-dev/Transit-AI" target="_blank" rel="noopener">Code</a><a href="https://proteeksanyal.medium.com/should-i-leave-now-building-a-weather-app-for-my-commute-a85a3ef9b6ab" target="_blank" rel="noopener">Write-up</a><a href="https://d17e9wvem3lbaq.cloudfront.net" target="_blank" rel="noopener">Try it</a></span></li>
             <li><strong>Automated Scheme Research Tool:</strong> a retrieval-augmented document assistant built with LangChain, FAISS and Streamlit. <span class="proof-links"><a href="https://github.com/proteek-dev/ASRT" target="_blank" rel="noopener">Code</a><a href="https://proteeksanyal.medium.com/end-to-end-llm-projects-using-langchain-openai-huggingface-and-faissv-3a00ce01a273" target="_blank" rel="noopener">Write-up</a></span></li>
             <li><strong>Maternal Health and Early Outbreak Warning:</strong> an open-source prototype that screens maternal health risk factors and flags unusual symptom spikes. <span class="proof-links"><a href="https://github.com/proteek-dev/Maternal-Health-Early-Warning" target="_blank" rel="noopener">Code</a><a href="https://proteeksanyal.medium.com/building-ai-for-maternal-health-early-outbreak-warning-open-source-mvp-b2aaf83bc8e3" target="_blank" rel="noopener">Write-up</a></span></li>
           </ul>
+          <!-- @end -->
         </div>
       </div>
     </section>
@@ -218,17 +203,20 @@
       </div>
     </section>
 
+    <!-- @gen:footer -->
     <footer class="footer">
       <a class="mini" href="index.html">← Back to portal</a>
-      <span class="dot">•</span>
+      <span class="dot" aria-hidden="true">•</span>
       <a class="mini" href="visitor.html">Visitor</a>
-      <span class="dot">•</span>
+      <span class="dot" aria-hidden="true">•</span>
       <a class="mini" href="partner.html">Partner</a>
-      <span class="dot">•</span>
+      <span class="dot" aria-hidden="true">•</span>
       <a class="mini" href="ask.html">Ask Me</a>
     </footer>
+    <!-- @end -->
   </main>
 
+  <script src="assets/js/motion.js"></script>
   <script src="assets/js/app.js"></script>
 </body>
 </html>

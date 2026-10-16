@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="assets/css/index.css" />
 </head>
 <body class="theme theme-index">
+  <a class="btn skip-link" href="#main">Skip to content</a>
   <!-- cinematic layers -->
   <div class="bg-aurora"></div>
   <div class="bg-noise"></div>
@@ -30,19 +31,20 @@
   <div class="cursor-glow" id="cursorGlow"></div>
   <canvas id="starfield" class="starfield" aria-hidden="true"></canvas>
 
+  <!-- @gen:topbar -->
   <header class="topbar">
     <a class="brand" href="index.html" aria-label="Home">
       <span class="brand-dot"></span>
       <span class="brand-title">PROTEEK <span class="muted">//</span> PORTFOLIO</span>
       <span class="brand-sub">Data · AI · Automation · Analytics</span>
     </a>
-
     <div class="top-actions">
       <a class="btn" href="assets/Proteek_Sanyal_Resume.pdf" target="_blank" rel="noopener">Resume</a>
     </div>
   </header>
+  <!-- @end -->
 
-  <main class="portal" aria-label="Choose a lens">
+  <main id="main" class="portal" aria-label="Choose a lens">
     <div class="portal-center">
       <div class="portal-title">
         <div class="identity">
@@ -107,15 +109,17 @@
         </button>
       </div>
 
+      <!-- @gen:contact:portal -->
       <div class="portal-foot">
         <a class="mini" href="mailto:proteeksanyal1994@gmail.com">proteeksanyal1994@gmail.com</a>
-        <span class="dot">•</span>
+        <span class="dot" aria-hidden="true">•</span>
         <a class="mini" href="https://github.com/proteek-dev" target="_blank" rel="noopener">GitHub</a>
-        <span class="dot">•</span>
+        <span class="dot" aria-hidden="true">•</span>
         <a class="mini" href="https://www.linkedin.com/in/proteeksanyal/" target="_blank" rel="noopener">LinkedIn</a>
-        <span class="dot">•</span>
+        <span class="dot" aria-hidden="true">•</span>
         <a class="mini" href="https://proteeksanyal.medium.com" target="_blank" rel="noopener">Medium</a>
       </div>
+      <!-- @end -->
     </div>
 
     <!-- Portal transition overlay -->
@@ -126,6 +130,7 @@
 
   </main>
 
+  <script src="assets/js/motion.js"></script>
   <script src="assets/js/app.js"></script>
   <script src="assets/js/index.js"></script>
 </body>

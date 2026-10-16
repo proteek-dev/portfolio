@@ -1,9 +1,70 @@
 (function () {
   const warp = document.getElementById("portalWarp");
   const fx = document.getElementById("cubeFx");
-  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const M = window.Motion;
+  const SCRIPT_SRC = document.currentScript && document.currentScript.src;
 
   if (!fx) return;
+
+  // ----- Three.js burst: loaded on first intent, never on page load -----
+  let burst = null;      // cube-burst.js module, once loaded and WebGL works
+  let burstLoading = false;
+  function loadBurst() {
+    if (burstLoading || M.reduced() || !SCRIPT_SRC) return;
+    burstLoading = true;
+    import(new URL("cube-burst.js", SCRIPT_SRC).href)
+      .then(mod => { if (mod.supported()) burst = mod; })
+      .catch(() => { /* offline or blocked: the 2D burst covers it */ });
+  }
+
+  function tint(accent, alpha) {
+    const m = accent.match(/rgba?\(([^)]+)\)/);
+    if (!m) return "";
+    const [r, g, b] = m[1].split(/[ ,/]+/).filter(Boolean);
+    return `rgba(${r},${g},${b},${alpha})`;
+  }
+
+  // First visit: pulse 0–120ms, burst 120–520ms, warp 400ms, navigate 620ms.
+  // Repeat visits: no pulse, smaller grid, navigate 220ms.
+  function playBurst(btn, face, repeat, href, fallback) {
+    const cube = btn.querySelector(".cube");
+    const accent = getComputedStyle(btn).getPropertyValue("--accent").trim();
+    warp.style.setProperty("--warp-tint", tint(accent, 0.22));
+    warp.classList.add("quick");
+
+    const start = (scale) => {
+      try {
+        burst.play({ cubeEl: cube, accent, face, n: repeat ? 3 : 4, scale, duration: repeat ? 220 : 400 });
+      } catch (err) {
+        btn.classList.remove("pulsing");
+        fallback();
+        return;
+      }
+      btn.classList.add("burst-hidden");
+      btn.classList.remove("pulsing");
+    };
+
+    if (repeat) {
+      start(1);
+      setTimeout(() => warp.classList.add("on"), 60);
+      setTimeout(() => { location.href = href; }, 220);
+    } else {
+      btn.classList.add("pulsing");
+      setTimeout(() => start(1.08), 120);
+      setTimeout(() => warp.classList.add("on"), 400);
+      setTimeout(() => { location.href = href; }, 620);
+    }
+  }
+
+  // Back button from a lens page: undo the click state so the portal works again
+  window.addEventListener("pageshow", (e) => {
+    if (!e.persisted) return;
+    if (burst) burst.dispose();
+    document.querySelectorAll(".lens").forEach(l => l.classList.remove("pulsing", "burst-hidden", "disintegrating"));
+    warp.classList.remove("on", "quick");
+    particles.length = 0;
+    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+  });
 
   const ctx = fx.getContext("2d", { alpha: true });
 
@@ -262,11 +323,13 @@
   document.querySelectorAll(".lens").forEach(btn => {
     const faces = btn.querySelectorAll(".cube .face");
     hoverState.set(btn, { x: 0, y: 0, face: "front", active: false });
+    btn.addEventListener("pointerenter", loadBurst, { once: true });
+    btn.addEventListener("focus", loadBurst, { once: true });
 
     // Pointer movement on each face = true “3D-ish” hotspot origin
     faces.forEach(faceEl => {
       faceEl.addEventListener("pointerenter", (e) => {
-        if (prefersReduced) return;
+        if (M.reduced() || M.coarse()) return;
         const st = hoverState.get(btn);
         st.active = true;
         st.face = getFaceFromEl(faceEl);
@@ -276,7 +339,7 @@
       }, { passive: true });
 
       faceEl.addEventListener("pointermove", (e) => {
-        if (prefersReduced) return;
+        if (M.reduced() || M.coarse()) return;
         const st = hoverState.get(btn);
         st.active = true;
         st.face = getFaceFromEl(faceEl);
@@ -292,11 +355,11 @@
     });
 
     // Click = burst + vapor + warp navigation (keeps your timing vibe)
-    btn.addEventListener("click", () => {
+    btn.addEventListener("click", (e) => {
       const href = btn.getAttribute("data-href");
       if (!href) return;
 
-      if (prefersReduced) {
+      if (M.reduced()) {
         location.href = href;
         return;
       }
@@ -304,23 +367,34 @@
       const st = hoverState.get(btn);
       let cx = st?.x, cy = st?.y, face = st?.face || "front";
 
-      // Fallback if click happens without prior hover move
-      if (!cx || !cy) {
+      // Keyboard (Enter/Space fire click with detail 0): cube centre and front face
+      if (e.detail === 0) face = "front";
+      if (e.detail === 0 || !cx || !cy) {
         const cube = btn.querySelector(".cube");
         const r = cube?.getBoundingClientRect();
         if (r) { cx = r.left + r.width / 2; cy = r.top + r.height / 2; }
         else { cx = window.innerWidth / 2; cy = window.innerHeight / 2; }
       }
 
-      btn.classList.add("disintegrating");
+      // The click takes over from the hover stream
+      for (const s of hoverState.values()) s.active = false;
 
-      // Stronger burst
-      spawnCubelets(cx, cy, face, 320, 3.0);
-      ensureRunning();
+      // First warp of the session gets the full burst; repeats are shorter
+      const repeat = M.seen("portal-warp");
+      M.markSeen("portal-warp");
+      M.markSeen("lens-arrive"); // the lens page fades its <main> in once
 
-      // Warp + navigate (slightly longer than hover; feels like “vapor then jump”)
-      warp.classList.add("on");
-      setTimeout(() => { location.href = href; }, 520);
+      // Today's 2D burst and warp: used when Three.js isn't ready or WebGL fails
+      const fallback = () => {
+        btn.classList.add("disintegrating");
+        spawnCubelets(cx, cy, face, repeat ? 80 : 320, 3.0);
+        ensureRunning();
+        warp.classList.add("on");
+        setTimeout(() => { location.href = href; }, repeat ? 180 : 520);
+      };
+
+      if (burst) playBurst(btn, face, repeat, href, fallback);
+      else fallback();
     });
   });
 })();

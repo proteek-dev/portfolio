@@ -1,18 +1,41 @@
 (function () {
+  const M = window.Motion;
+
+  // Arriving from a cube click: fade <main> in once
+  if (M.seen("lens-arrive")) {
+    M.clearSeen("lens-arrive");
+    const main = document.querySelector("main");
+    if (main && !M.reduced() && document.body.dataset.mode) main.classList.add("lens-arrive");
+  }
+
+  // Cursor glow: fine pointers without reduced motion only, one style write per animation frame
   const glow = document.getElementById("cursorGlow");
   if (glow) {
-    window.addEventListener("pointermove", (e) => {
-      glow.style.left = e.clientX + "px";
-      glow.style.top = e.clientY + "px";
-    }, { passive: true });
+    let gx = 0, gy = 0, glowFrame = 0;
+    const writeGlow = () => {
+      glowFrame = 0;
+      glow.style.left = gx + "px";
+      glow.style.top = gy + "px";
+    };
+    const onMove = (e) => {
+      gx = e.clientX; gy = e.clientY;
+      if (!glowFrame) glowFrame = requestAnimationFrame(writeGlow);
+    };
+    let listening = false;
+    const applyGlow = () => {
+      const off = M.coarse() || M.reduced();
+      glow.classList.toggle("is-off", off);
+      if (off && listening) { window.removeEventListener("pointermove", onMove); listening = false; }
+      if (!off && !listening) { window.addEventListener("pointermove", onMove, { passive: true }); listening = true; }
+    };
+    applyGlow();
+    M.onChange(applyGlow);
   }
 
   // Starfield (lightweight)
   const canvas = document.getElementById("starfield");
   if (!canvas) return;
   const ctx = canvas.getContext("2d", { alpha: true });
-
-  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   function resize() {
     const dpr = Math.min(2, window.devicePixelRatio || 1);
@@ -22,11 +45,11 @@
     canvas.style.height = "100%";
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
-  window.addEventListener("resize", resize);
+  window.addEventListener("resize", () => { resize(); if (!animating()) drawFrame(); });
   resize();
 
   const stars = [];
-  const N = prefersReduced ? 120 : 220;
+  const N = window.innerWidth < 640 ? 110 : 220;
 
   for (let i = 0; i < N; i++) {
     stars.push({
@@ -39,15 +62,11 @@
   }
 
   let t = 0;
-  function tick() {
+  let frame = 0;
+
+  function drawFrame() {
     ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-    t += 0.01;
-
     for (const s of stars) {
-      s.y += s.v;
-      if (s.y < -10) s.y = window.innerHeight + 10;
-      if (s.y > window.innerHeight + 10) s.y = -10;
-
       const tw = Math.sin(t + s.x * 0.01) * 0.15;
       ctx.globalAlpha = Math.max(0, Math.min(1, s.a + tw));
       ctx.beginPath();
@@ -55,9 +74,39 @@
       ctx.fillStyle = "white";
       ctx.fill();
     }
-
     ctx.globalAlpha = 1;
-    if (!prefersReduced) requestAnimationFrame(tick);
   }
-  tick();
+
+  function tick() {
+    t += 0.01;
+    for (const s of stars) {
+      s.y += s.v;
+      if (s.y < -10) s.y = window.innerHeight + 10;
+      if (s.y > window.innerHeight + 10) s.y = -10;
+    }
+    drawFrame();
+    frame = requestAnimationFrame(tick);
+  }
+
+  const shouldAnimate = () => !M.reduced() && !M.coarse() && !document.hidden;
+  const animating = () => frame !== 0;
+
+  function stop() {
+    if (frame) cancelAnimationFrame(frame);
+    frame = 0;
+  }
+
+  // Animate when allowed; otherwise one static frame and no loop
+  function apply() {
+    if (shouldAnimate()) {
+      if (!animating()) frame = requestAnimationFrame(tick);
+    } else {
+      stop();
+      if (!document.hidden) drawFrame();
+    }
+  }
+
+  apply();
+  M.onChange(apply);
+  M.onVisibility(apply);
 })();

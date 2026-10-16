@@ -1,0 +1,367 @@
+{
+  "person": {
+    "name": "Proteek Kumar Sanyal",
+    "headline": "AI Solutions Analyst | Business & Systems Analyst | Data Analyst",
+    "location": "Gold Coast, QLD",
+    "years": "6 years",
+    "work_rights": "Full working rights in Australia"
+  },
+  "contact": {
+    "email": "proteeksanyal1994@gmail.com",
+    "phone": "+61 481 709 247",
+    "linkedin": "https://www.linkedin.com/in/proteeksanyal/",
+    "github": "https://github.com/proteek-dev",
+    "medium": "https://proteeksanyal.medium.com"
+  },
+  "resume": "assets/Proteek_Sanyal_Resume.pdf",
+  "portal": {
+    "label": "Portfolio",
+    "subtitle": "Data · AI · Automation · Analytics"
+  },
+  "not_found": {
+    "label": "Lost",
+    "subtitle": "Page not found"
+  },
+  "lenses": [
+    {
+      "id": "visitor",
+      "label": "Visitor",
+      "file": "visitor.html",
+      "subtitle": "The short version",
+      "accent": "rgba(120,255,210,.92)"
+    },
+    {
+      "id": "recruiter",
+      "label": "Recruiter",
+      "file": "recruiter.html",
+      "subtitle": "The 30-second read",
+      "accent": "rgba(130,170,255,.92)"
+    },
+    {
+      "id": "partner",
+      "label": "Partner",
+      "file": "partner.html",
+      "subtitle": "Case studies and how I work",
+      "accent": "rgba(255,190,110,.92)"
+    },
+    {
+      "id": "ask",
+      "label": "Ask Me",
+      "file": "ask.html",
+      "subtitle": "Questions, answered from my CV",
+      "accent": "rgba(180,120,255,.92)"
+    }
+  ],
+  "roles": [
+    {
+      "title": "Data Analyst",
+      "employer": "City of Gold Coast",
+      "dates": "Jun 2025 – Present",
+      "bullets": [
+        {
+          "text": "Work with council departments to understand what they are trying to decide, then turn that into reporting they will use."
+        },
+        {
+          "text": "Build Power BI dashboards with DAX and Power Query on semantic models and data pipelines I maintain in Microsoft Fabric."
+        },
+        {
+          "text": "Write Python to automate manual data handling, and document data definitions and business rules to support data governance."
+        }
+      ],
+      "chips": [
+        "Power BI",
+        "DAX",
+        "Power Query",
+        "Microsoft Fabric",
+        "Python"
+      ]
+    },
+    {
+      "title": "Data Engineer",
+      "employer": "ICI",
+      "dates": "Mar 2025 – May 2025",
+      "bullets": [
+        {
+          "text": "Built automated data collection and processing pipelines for data from a dozen marketing channels."
+        },
+        {
+          "text": "Built the validation and quality-assurance processes behind campaign reporting."
+        },
+        {
+          "text": "Produced weekly and monthly performance reporting for Australian and international markets."
+        }
+      ],
+      "chips": []
+    },
+    {
+      "title": "Machine Learning Engineer (Internship)",
+      "employer": "Truuth",
+      "dates": "Jul 2023 – Nov 2023",
+      "bullets": [
+        {
+          "lead": "User Liveness Detection",
+          "text": "fine-tuned a MobileNet-based liveness detection model and integrated it into the live identity verification app as microservices on AWS SageMaker."
+        },
+        {
+          "text": "Built and tuned data processing pipelines on AWS S3 and SageMaker for training and experimentation."
+        },
+        {
+          "text": "Monitored live services and supported feature deployments."
+        }
+      ],
+      "chips": [
+        "MobileNet",
+        "AWS SageMaker",
+        "AWS S3"
+      ]
+    },
+    {
+      "title": "Data Scientist",
+      "employer": "Infinite Computer Solutions",
+      "dates": "Aug 2021 – Dec 2021",
+      "bullets": [
+        {
+          "lead": "Medical Image Analysis Platform",
+          "text": "built CNN-based models for medical image segmentation, classification and anomaly detection, deployed behind Flask services and orchestrated through AWS SageMaker. The models improved diagnostic accuracy by 25% and reduced false positives."
+        },
+        {
+          "text": "Worked with cross-functional teams to define feature requirements and set up feedback loops, in a regulated environment."
+        }
+      ],
+      "chips": [
+        "CNN",
+        "Flask",
+        "AWS SageMaker"
+      ]
+    },
+    {
+      "title": "Data Scientist",
+      "employer": "Tetra Soft India",
+      "dates": "Dec 2020 – Jul 2021",
+      "bullets": [
+        {
+          "lead": "Evacuation Risk Assessment",
+          "text": "built predictive models to assess medical and political evacuation risk, presented through Power BI for non-technical users."
+        },
+        {
+          "text": "Engineered data processing and workflow automation using Azure Data Factory and Databricks."
+        }
+      ],
+      "chips": [
+        "Power BI",
+        "Azure Data Factory",
+        "Databricks"
+      ]
+    },
+    {
+      "title": "Software Engineer",
+      "employer": "HCL Technologies",
+      "dates": "Feb 2017 – Nov 2020",
+      "bullets": [
+        {
+          "lead": "Sentiment Analysis with BERT",
+          "text": "built a BERT-based sentiment analysis model and integrated it into a production voice platform."
+        },
+        {
+          "lead": "OCR Document Parsing",
+          "text": "designed deep learning and OCR models in Python for automated document parsing, with microservices in ASP.NET and C#."
+        },
+        {
+          "text": "Turned business requirements into technical specifications and managed the design and testing that followed."
+        }
+      ],
+      "chips": [
+        "BERT",
+        "OCR",
+        "Python",
+        "ASP.NET",
+        "C#"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "group": "Generative AI & Automation",
+      "items": [
+        "Anthropic Claude",
+        "OpenAI ChatGPT",
+        "Microsoft Copilot",
+        "Prompt engineering",
+        "LangChain",
+        "Retrieval-augmented generation (RAG)",
+        "FAISS vector search",
+        "Hugging Face Transformers",
+        "Embeddings",
+        "BERT",
+        "Streamlit",
+        "Python scripting for workflow automation"
+      ]
+    },
+    {
+      "group": "Microsoft Platform",
+      "items": [
+        "Power BI (DAX, Power Query / M)",
+        "Microsoft Fabric",
+        "Semantic and dimensional modelling",
+        "Microsoft 365",
+        "SQL Server",
+        "Azure (Data Factory, Databricks)"
+      ]
+    },
+    {
+      "group": "Analysis & Delivery",
+      "items": [
+        "Requirements gathering",
+        "Process and workflow design",
+        "Solution documentation",
+        "UAT and user testing",
+        "Stakeholder engagement",
+        "Agile delivery",
+        "Jira and Confluence"
+      ]
+    },
+    {
+      "group": "Programming",
+      "items": [
+        "Python",
+        "SQL",
+        "C#",
+        "PySpark",
+        "R",
+        "Pandas",
+        "NumPy",
+        "Scikit-Learn"
+      ]
+    },
+    {
+      "group": "Machine Learning",
+      "items": [
+        "CNNs and computer vision",
+        "Natural language processing (NLP)",
+        "XGBoost",
+        "TensorFlow",
+        "PyTorch"
+      ]
+    },
+    {
+      "group": "Cloud & DevOps",
+      "items": [
+        "AWS (SageMaker, S3, EC2, RDS, ECR)",
+        "Docker",
+        "Kubernetes",
+        "CI/CD",
+        "GitHub Actions",
+        "REST APIs"
+      ]
+    }
+  ],
+  "projects": {
+    "work_note": "Production work for employers. The code belongs to them, so there are no links.",
+    "work": [
+      {
+        "name": "User Liveness Detection",
+        "employer": "Truuth",
+        "year": "2023",
+        "summary": "Reviewed the current state of face anti-spoofing research, fine-tuned a MobileNet-based liveness detection model, and integrated it into the live customer-facing identity verification app as microservices on AWS SageMaker.",
+        "chips": [
+          "MobileNet",
+          "AWS SageMaker",
+          "Microservices"
+        ]
+      },
+      {
+        "name": "Medical Image Analysis Platform",
+        "employer": "Infinite Computer Solutions",
+        "year": "2021",
+        "summary": "Built CNN-based models for medical image segmentation, classification and anomaly detection, deployed behind Flask services, orchestrated through AWS SageMaker and integrated in real time with the platform. The models improved diagnostic accuracy by 25% and reduced false positives.",
+        "chips": [
+          "CNN",
+          "Flask",
+          "AWS SageMaker"
+        ]
+      },
+      {
+        "name": "Evacuation Risk Assessment",
+        "employer": "Tetra Soft",
+        "year": "2020–21",
+        "summary": "Built predictive models to assess medical and political evacuation risk, and presented the outputs through Power BI for non-technical users. Data processing and workflow automation ran on Azure Data Factory and Databricks.",
+        "chips": [
+          "Power BI",
+          "Azure Data Factory",
+          "Databricks"
+        ]
+      },
+      {
+        "name": "Sentiment Analysis with BERT",
+        "employer": "HCL",
+        "year": "2017–20",
+        "summary": "Built a BERT-based sentiment analysis model and integrated it into a production voice platform.",
+        "chips": [
+          "BERT"
+        ]
+      },
+      {
+        "name": "OCR Document Parsing",
+        "employer": "HCL",
+        "year": "2017–20",
+        "summary": "Designed deep learning and OCR models in Python for automated document parsing, replacing manual data entry, with microservices in ASP.NET and C# handling requests.",
+        "chips": [
+          "OCR",
+          "Python",
+          "ASP.NET",
+          "C#"
+        ]
+      }
+    ],
+    "personal": [
+      {
+        "id": "seq-transit",
+        "name": "SEQ Transit AI",
+        "summary": "delay prediction for the Gold Coast to Brisbane corridor, using an XGBoost model on a GTFS-Realtime archive I collected on AWS.",
+        "links": {
+          "code": "https://github.com/proteek-dev/Transit-AI",
+          "writeup": "https://proteeksanyal.medium.com/should-i-leave-now-building-a-weather-app-for-my-commute-a85a3ef9b6ab",
+          "try": "https://d17e9wvem3lbaq.cloudfront.net"
+        }
+      },
+      {
+        "id": "scheme-tool",
+        "name": "Automated Scheme Research Tool",
+        "summary": "a retrieval-augmented document assistant built with LangChain, FAISS and Streamlit.",
+        "links": {
+          "code": "https://github.com/proteek-dev/ASRT",
+          "writeup": "https://proteeksanyal.medium.com/end-to-end-llm-projects-using-langchain-openai-huggingface-and-faissv-3a00ce01a273"
+        }
+      },
+      {
+        "id": "maternal-health",
+        "name": "Maternal Health and Early Outbreak Warning",
+        "summary": "an open-source prototype that screens maternal health risk factors and flags unusual symptom spikes.",
+        "links": {
+          "code": "https://github.com/proteek-dev/Maternal-Health-Early-Warning",
+          "writeup": "https://proteeksanyal.medium.com/building-ai-for-maternal-health-early-outbreak-warning-open-source-mvp-b2aaf83bc8e3"
+        }
+      }
+    ]
+  },
+  "writing": [
+    {
+      "title": "Should I Leave Now? (SEQ Transit AI)",
+      "month": "Aug",
+      "year": 2026,
+      "url": "https://proteeksanyal.medium.com/should-i-leave-now-building-a-weather-app-for-my-commute-a85a3ef9b6ab"
+    },
+    {
+      "title": "Building AI for Maternal Health & Early Outbreak Warning",
+      "month": "Oct",
+      "year": 2025,
+      "url": "https://proteeksanyal.medium.com/building-ai-for-maternal-health-early-outbreak-warning-open-source-mvp-b2aaf83bc8e3"
+    },
+    {
+      "title": "End-to-end LLM projects using LangChain, OpenAI/Hugging Face and FAISS",
+      "month": "Jan",
+      "year": 2025,
+      "url": "https://proteeksanyal.medium.com/end-to-end-llm-projects-using-langchain-openai-huggingface-and-faissv-3a00ce01a273"
+    }
+  ]
+}

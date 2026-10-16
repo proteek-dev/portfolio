@@ -23,12 +23,14 @@
   <link rel="stylesheet" href="assets/css/mode.css" />
 </head>
 <body class="theme theme-visitor" data-mode="visitor">
+  <a class="btn skip-link" href="#main">Skip to content</a>
   <div class="bg-aurora"></div>
   <div class="bg-noise"></div>
   <div class="vignette"></div>
   <div class="cursor-glow" id="cursorGlow"></div>
   <canvas id="starfield" class="starfield" aria-hidden="true"></canvas>
 
+  <!-- @gen:topbar -->
   <header class="topbar">
     <a class="brand" href="index.html" aria-label="Back to portal">
       <span class="brand-dot"></span>
@@ -42,8 +44,9 @@
       <a class="btn" href="assets/Proteek_Sanyal_Resume.pdf" target="_blank" rel="noopener">Resume</a>
     </div>
   </header>
+  <!-- @end -->
 
-  <main class="page">
+  <main id="main" class="page">
     <section class="hero">
       <div class="hero-left">
         <div class="kicker">VISITOR</div>
@@ -68,8 +71,15 @@
 
       <div class="hero-right">
         <div class="portrait-card">
-          <img src="assets/img/portrait.jpg" alt="Proteek portrait" />
+          <picture>
+            <source type="image/webp"
+                    srcset="assets/img/portrait-480.webp 480w, assets/img/portrait-960.webp 960w"
+                    sizes="(max-width: 980px) calc(100vw - 36px), (max-width: 1120px) calc(45vw - 24px), 480px" />
+            <img src="assets/img/portrait-960.jpg" alt="Proteek Kumar Sanyal"
+                 width="960" height="960" decoding="async" fetchpriority="high" />
+          </picture>
           <div class="portrait-overlay"></div>
+          <!-- @gen:contact:card -->
           <div class="portrait-meta">
             <div class="pm-title">Contact</div>
             <a href="mailto:proteeksanyal1994@gmail.com">proteeksanyal1994@gmail.com</a>
@@ -78,6 +88,7 @@
             <a href="https://www.linkedin.com/in/proteeksanyal/" target="_blank" rel="noopener">linkedin.com/in/proteeksanyal</a>
             <a href="https://proteeksanyal.medium.com" target="_blank" rel="noopener">proteeksanyal.medium.com</a>
           </div>
+          <!-- @end -->
         </div>
       </div>
     </section>
@@ -125,24 +136,27 @@
       <h2>Where next</h2>
       <div class="where-next">
         <a class="mini" href="recruiter.html">The 30-second read (Recruiter)</a>
-        <span class="dot">•</span>
+        <span class="dot" aria-hidden="true">•</span>
         <a class="mini" href="partner.html">Case studies (Partner)</a>
-        <span class="dot">•</span>
+        <span class="dot" aria-hidden="true">•</span>
         <a class="mini" href="ask.html">Ask me a question (Ask Me)</a>
       </div>
     </section>
 
+    <!-- @gen:footer -->
     <footer class="footer">
       <a class="mini" href="index.html">← Back to portal</a>
-      <span class="dot">•</span>
+      <span class="dot" aria-hidden="true">•</span>
       <a class="mini" href="recruiter.html">Recruiter</a>
-      <span class="dot">•</span>
+      <span class="dot" aria-hidden="true">•</span>
       <a class="mini" href="partner.html">Partner</a>
-      <span class="dot">•</span>
+      <span class="dot" aria-hidden="true">•</span>
       <a class="mini" href="ask.html">Ask Me</a>
     </footer>
+    <!-- @end -->
   </main>
 
+  <script src="assets/js/motion.js"></script>
   <script src="assets/js/app.js"></script>
 </body>
 </html>
