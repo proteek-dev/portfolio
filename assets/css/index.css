@@ -128,24 +128,6 @@
   pointer-events:none;
 }
 
-/* Transition: the page dissolves to its own background, tinted by the lens */
-.portal-warp{
-  position: fixed;
-  inset:0;
-  pointer-events:none;
-  opacity:0;
-  background:
-    radial-gradient(circle at center, var(--warp-tint, transparent), transparent 60%),
-    var(--bg0);
-  transform: scale(1.0);
-  transition: opacity .30s ease, transform .55s var(--spring);
-  z-index: 80;
-}
-.portal-warp.on{
-  opacity: 1;
-  transform: scale(1.08);
-}
-
 @media (max-width: 1100px){
   .lens-grid{ grid-template-columns: repeat(2, 1fr); }
 }
@@ -157,23 +139,6 @@
   .portal-title .kicker{ margin-top: 28px; }
   .lens-grid{ gap: 12px; }
   .lens{ padding: 28px 8px 18px; }
-}
-
-/* ---------- DISINTEGRATION FX OVERLAY ---------- */
-.cube-fx{
-  position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  z-index: 70; /* above cubes, below .portal-warp (80) */
-}
-
-/* When clicking a lens, fade the cube as it "vaporizes" */
-.lens.disintegrating .cube{
-  opacity: 0;
-  transform: scale(0.96) rotateX(-18deg) rotateY(28deg);
-  transition: opacity .22s ease, transform .22s ease;
 }
 
 .lens:focus-visible{
@@ -195,11 +160,16 @@
   .lens-desc   { font-size: .875rem; }
 }
 
-/* Three.js burst: pulse, then the CSS cube hides while the WebGL fragments take over */
-.lens.pulsing .cube{ scale: 1.08; transition: scale .12s ease-out; }
-.lens.pulsing .face{ filter: brightness(1.4); transition: filter .12s ease-out; }
-.lens.burst-hidden .cube{ visibility: hidden; }
-.portal-warp.quick{ transition-duration: .22s, .55s; }
+/* Opening a lens: the tapped card grows to fill the screen (index.js sets
+   clip-path and colour). Above the nav bar so it covers the whole viewport. */
+.lens-sheet{
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  pointer-events: none;
+  background: var(--bg0);
+  will-change: clip-path;
+}
 
 @media (prefers-reduced-motion: reduce){
   .lens, .lens:active{ transition: none; transform: none; }

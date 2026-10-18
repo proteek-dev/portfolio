@@ -74,9 +74,8 @@ portfolio/
     │   └── ask.css         # Ask Me layout
     ├── js/
     │   ├── motion.js       # Shared checks: reduced motion, touch, hidden tab
-    │   ├── app.js          # Starfield and cursor glow
-    │   ├── index.js        # Cube hover particles and click transition
-    │   ├── cube-burst.js   # Three.js cube burst, loaded on first hover
+    │   ├── app.js          # Fades a lens page in after a cube click
+    │   ├── index.js        # Opening a lens: the card grows to fill the screen
     │   └── ask-engine.js   # Ask Me matching, works in the browser and Node
     └── img/
         ├── favicon.svg
@@ -92,11 +91,10 @@ portfolio/
 - The site follows the system light or dark setting. Text colours come from tokens in `base.css` that reach WCAG AA contrast in both themes. `python3 .claude/contrast-check.py` checks every page in each.
 - Every link, button and input shows a visible focus ring in the page's accent colour. Each page has a skip link to the main content.
 - The landing cubes are buttons, so Enter and Space work the same as a click.
-- With reduced motion turned on, the cubes don't tilt, buttons don't scale on press, and a cube click goes straight to the lens.
+- With reduced motion turned on, the cubes don't tilt, buttons don't scale on press, and opening a lens is a short cross-fade.
 - With reduced transparency or increased contrast turned on, the nav bar is solid. Increased contrast also outlines cards and buttons.
-- On touch screens the hover particles are off.
 - Animations stop while the tab is hidden.
-- Three.js loads only after the first hover or focus on a cube. Without WebGL, the cubes use a 2D effect instead.
+- Opening a lens grows the tapped card to fill the screen on a spring while the landing page recedes.
 
 ## Contact
 
