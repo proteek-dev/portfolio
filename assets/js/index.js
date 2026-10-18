@@ -17,10 +17,17 @@
       .catch(() => { /* offline or blocked: the 2D burst covers it */ });
   }
 
-  function tint(accent, alpha) {
+  // "#00796b" (light theme) or "rgba(120,255,210,.92)" (dark theme) -> [r, g, b]
+  function rgbOf(accent) {
+    const hex = accent.match(/^#([0-9a-f]{6})$/i);
+    if (hex) return [0, 2, 4].map(i => parseInt(hex[1].slice(i, i + 2), 16));
     const m = accent.match(/rgba?\(([^)]+)\)/);
-    if (!m) return "";
-    const [r, g, b] = m[1].split(/[ ,/]+/).filter(Boolean);
+    return m ? m[1].split(/[ ,/]+/).filter(Boolean).slice(0, 3).map(Number) : [130, 170, 255];
+  }
+  const accentOf = (el) => getComputedStyle(el).getPropertyValue("--accent").trim();
+
+  function tint(accent, alpha) {
+    const [r, g, b] = rgbOf(accent);
     return `rgba(${r},${g},${b},${alpha})`;
   }
 
@@ -28,13 +35,14 @@
   // Repeat visits: no pulse, smaller grid, navigate 220ms.
   function playBurst(btn, face, repeat, href, fallback) {
     const cube = btn.querySelector(".cube");
-    const accent = getComputedStyle(btn).getPropertyValue("--accent").trim();
+    const accent = accentOf(btn);
+    const edge = getComputedStyle(document.documentElement).getPropertyValue("--fx-edge").trim();
     warp.style.setProperty("--warp-tint", tint(accent, 0.22));
     warp.classList.add("quick");
 
     const start = (scale) => {
       try {
-        burst.play({ cubeEl: cube, accent, face, n: repeat ? 3 : 4, scale, duration: repeat ? 220 : 400 });
+        burst.play({ cubeEl: cube, accent: tint(accent, 1), edge, face, n: repeat ? 3 : 4, scale, duration: repeat ? 220 : 400 });
       } catch (err) {
         btn.classList.remove("pulsing");
         fallback();
@@ -97,7 +105,8 @@
   function clamp01(v){ return Math.max(0, Math.min(1, v)); }
 
   // Draw a tiny isometric cube made of 3 faces (top/left/right)
-  function drawIsoCube(ctx, x, y, s, a, tiltX, tiltY) {
+  function drawIsoCube(ctx, x, y, s, a, tiltX, tiltY, rgb) {
+    const ink = rgb.join(",");
     // tiltX/tiltY are in [-1..1], derived from velocity direction to sell “3D”
     const tx = tiltX * 0.55;
     const ty = tiltY * 0.55;
@@ -134,7 +143,7 @@
     ctx.lineTo(p2.x, p2.y);
     ctx.lineTo(p3.x, p3.y);
     ctx.closePath();
-    ctx.fillStyle = `rgba(255,255,255,${topA})`;
+    ctx.fillStyle = `rgba(${ink},${topA})`;
     ctx.fill();
 
     // RIGHT face p1-q1-q2-p2
@@ -144,7 +153,7 @@
     ctx.lineTo(q2.x, q2.y);
     ctx.lineTo(p2.x, p2.y);
     ctx.closePath();
-    ctx.fillStyle = `rgba(255,255,255,${rightA})`;
+    ctx.fillStyle = `rgba(${ink},${rightA})`;
     ctx.fill();
 
     // LEFT face p3-p2-q2-q3
@@ -154,11 +163,11 @@
     ctx.lineTo(q2.x, q2.y);
     ctx.lineTo(q3.x, q3.y);
     ctx.closePath();
-    ctx.fillStyle = `rgba(255,255,255,${leftA})`;
+    ctx.fillStyle = `rgba(${ink},${leftA})`;
     ctx.fill();
 
     // Edges
-    ctx.strokeStyle = `rgba(255,255,255,${edgeA})`;
+    ctx.strokeStyle = `rgba(${ink},${edgeA})`;
     ctx.lineWidth = 1;
     ctx.beginPath();
     // top outline
@@ -174,7 +183,7 @@
 
   function rand(min, max) { return Math.random() * (max - min) + min; }
 
-  function spawnCubelets(x, y, face, amount, strength) {
+  function spawnCubelets(x, y, face, amount, strength, rgb) {
     const b = faceBias[face] || faceBias.front;
 
     for (let i = 0; i < amount; i++) {
@@ -211,7 +220,7 @@
         rot,
         spin,
         shrink: (face === "back") ? rand(0.015, 0.03) : rand(0.004, 0.014),
-        tx, ty
+        tx, ty, rgb
       });
     }
   }
@@ -253,7 +262,7 @@
       const tiltX = clamp01((p.tx + 1) * 0.5) * 2 - 1; // normalize back to -1..1
       const tiltY = clamp01((p.ty + 1) * 0.5) * 2 - 1;
 
-      drawIsoCube(ctx, p.x, p.y, p.size, a, tiltX + wobble, tiltY - wobble);
+      drawIsoCube(ctx, p.x, p.y, p.size, a, tiltX + wobble, tiltY - wobble, p.rgb);
 
     }
   }
@@ -298,7 +307,7 @@
     for (const st of hoverState.values()) {
       if (!st.active) continue;
       // emission: small continuous stream
-      spawnCubelets(st.x, st.y, st.face, 10, 0.9);
+      spawnCubelets(st.x, st.y, st.face, 10, 0.9, st.rgb);
     }
 
     draw(dt);
@@ -322,7 +331,7 @@
   // ----- Wire up faces + click -----
   document.querySelectorAll(".lens").forEach(btn => {
     const faces = btn.querySelectorAll(".cube .face");
-    hoverState.set(btn, { x: 0, y: 0, face: "front", active: false });
+    hoverState.set(btn, { x: 0, y: 0, face: "front", active: false, rgb: [130, 170, 255] });
     btn.addEventListener("pointerenter", loadBurst, { once: true });
     btn.addEventListener("focus", loadBurst, { once: true });
 
@@ -333,6 +342,7 @@
         const st = hoverState.get(btn);
         st.active = true;
         st.face = getFaceFromEl(faceEl);
+        st.rgb = rgbOf(accentOf(btn));  // read on entry so it follows a theme change
         st.x = e.clientX;
         st.y = e.clientY;
         ensureRunning();
@@ -387,7 +397,7 @@
       // Today's 2D burst and warp: used when Three.js isn't ready or WebGL fails
       const fallback = () => {
         btn.classList.add("disintegrating");
-        spawnCubelets(cx, cy, face, repeat ? 80 : 320, 3.0);
+        spawnCubelets(cx, cy, face, repeat ? 80 : 320, 3.0, rgbOf(accentOf(btn)));
         ensureRunning();
         warp.classList.add("on");
         setTimeout(() => { location.href = href; }, repeat ? 180 : 520);

@@ -5,33 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Page not found · Proteek Kumar Sanyal</title>
   <meta name="robots" content="noindex" />
-  <meta name="theme-color" content="#05060a" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
   <link rel="icon" type="image/svg+xml" href="/portfolio/assets/img/favicon.svg" />
   <link rel="stylesheet" href="/portfolio/assets/css/base.css" />
   <link rel="stylesheet" href="/portfolio/assets/css/mode.css" />
 </head>
 <body class="theme theme-lost">
   <a class="btn skip-link" href="#main">Skip to content</a>
-  <div class="bg-aurora"></div>
-  <div class="bg-noise"></div>
-  <div class="vignette"></div>
-  <div class="cursor-glow" id="cursorGlow"></div>
-  <canvas id="starfield" class="starfield" aria-hidden="true"></canvas>
 
   <!-- @gen:topbar -->
   <header class="topbar">
-    <a class="brand" href="/portfolio/index.html" aria-label="Back to portal">
-      <span class="brand-dot"></span>
-      <span class="brand-title">PROTEEK <span class="muted">//</span> LOST</span>
-      <span class="brand-sub">Page not found</span>
+    <a class="brand" href="/portfolio/index.html" aria-label="Proteek, home">
+      <span class="brand-title">Proteek</span>
     </a>
-    <div class="top-actions">
+    <nav class="top-actions" aria-label="Site">
       <a class="btn" href="/portfolio/visitor.html">Visitor</a>
       <a class="btn" href="/portfolio/recruiter.html">Recruiter</a>
       <a class="btn" href="/portfolio/partner.html">Partner</a>
       <a class="btn" href="/portfolio/ask.html">Ask Me</a>
       <a class="btn" href="/portfolio/assets/Proteek_Sanyal_Resume.pdf" target="_blank" rel="noopener">Resume</a>
-    </div>
+    </nav>
   </header>
   <!-- @end -->
 
@@ -47,19 +42,19 @@
     <section class="section">
       <!-- @gen:lens-tiles -->
       <nav class="lens-tiles" aria-label="Lenses">
-        <a class="lens-tile" href="/portfolio/visitor.html" style="--accent: rgba(120,255,210,.92)">
+        <a class="lens-tile" href="/portfolio/visitor.html" data-mode="visitor">
           <span class="lens-tile-name">Visitor</span>
           <span class="lens-tile-sub">The short version</span>
         </a>
-        <a class="lens-tile" href="/portfolio/recruiter.html" style="--accent: rgba(130,170,255,.92)">
+        <a class="lens-tile" href="/portfolio/recruiter.html" data-mode="recruiter">
           <span class="lens-tile-name">Recruiter</span>
           <span class="lens-tile-sub">The 30-second read</span>
         </a>
-        <a class="lens-tile" href="/portfolio/partner.html" style="--accent: rgba(255,190,110,.92)">
+        <a class="lens-tile" href="/portfolio/partner.html" data-mode="partner">
           <span class="lens-tile-name">Partner</span>
           <span class="lens-tile-sub">Case studies and how I work</span>
         </a>
-        <a class="lens-tile" href="/portfolio/ask.html" style="--accent: rgba(180,120,255,.92)">
+        <a class="lens-tile" href="/portfolio/ask.html" data-mode="ask">
           <span class="lens-tile-name">Ask Me</span>
           <span class="lens-tile-sub">Questions, answered from my CV</span>
         </a>

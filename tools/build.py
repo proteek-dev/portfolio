@@ -55,29 +55,24 @@ def chips(items):
 # ---------- blocks ----------
 
 def topbar(P, page):
+    # Every lens page lists all four lenses and marks its own, so the bar answers "where am I?"
     lens, base = page["lens"], page["base"]
-    first = P["person"]["name"].split()[0].upper()
-    if page["file"] == "404.html":
-        nf = P["not_found"]
-        label, sub, aria, nav = nf["label"], nf["subtitle"], "Back to portal", P["lenses"]
-    elif lens is None:
-        label, sub, aria, nav = P["portal"]["label"], P["portal"]["subtitle"], "Home", []
-    else:
-        label, sub, aria = lens["label"], lens["subtitle"], "Back to portal"
-        nav = [l for l in P["lenses"] if l["id"] != lens["id"]]
+    first = P["person"]["name"].split()[0]
+    nav = [] if lens is None and page["file"] != "404.html" else P["lenses"]
+    current = lens["id"] if lens else None
     out = [
         '<header class="topbar">',
-        f'  <a class="brand" href="{a(base)}index.html" aria-label="{a(aria)}">',
-        '    <span class="brand-dot"></span>',
-        f'    <span class="brand-title">{t(first)} <span class="muted">//</span> {t(label.upper())}</span>',
-        f'    <span class="brand-sub">{t(sub)}</span>',
+        f'  <a class="brand" href="{a(base)}index.html" aria-label="{a(first)}, home">',
+        f'    <span class="brand-title">{t(first)}</span>',
         "  </a>",
-        '  <div class="top-actions">',
+        '  <nav class="top-actions" aria-label="Site">',
     ]
-    out += [f'    <a class="btn" href="{a(base + l["file"])}">{t(l["label"])}</a>' for l in nav]
+    out += [f'    <a class="btn" href="{a(base + l["file"])}"'
+            + (' aria-current="page"' if l["id"] == current else "")
+            + f'>{t(l["label"])}</a>' for l in nav]
     out += [
         f'    <a class="btn" href="{a(base + P["resume"])}" {EXT}>Resume</a>',
-        "  </div>",
+        "  </nav>",
         "</header>",
     ]
     return out
@@ -186,7 +181,7 @@ def lens_tiles(P, page):
     base = page["base"]
     out = ['<nav class="lens-tiles" aria-label="Lenses">']
     for l in P["lenses"]:
-        out += [f'  <a class="lens-tile" href="{a(base + l["file"])}" style="--accent: {a(l["accent"])}">',
+        out += [f'  <a class="lens-tile" href="{a(base + l["file"])}" data-mode="{a(l["id"])}">',
                 f'    <span class="lens-tile-name">{t(l["label"])}</span>',
                 f'    <span class="lens-tile-sub">{t(l["subtitle"])}</span>',
                 "  </a>"]

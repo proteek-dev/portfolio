@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Proteek Kumar Sanyal · Portfolio</title>
   <meta name="description" content="Proteek Kumar Sanyal sits between business teams and technology. Pick who you are and see the part of his work that matters to you." />
-  <meta name="theme-color" content="#05060a" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
   <link rel="canonical" href="https://proteek-dev.github.io/portfolio/" />
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
 
@@ -24,23 +26,15 @@
 </head>
 <body class="theme theme-index">
   <a class="btn skip-link" href="#main">Skip to content</a>
-  <!-- cinematic layers -->
-  <div class="bg-aurora"></div>
-  <div class="bg-noise"></div>
-  <div class="vignette"></div>
-  <div class="cursor-glow" id="cursorGlow"></div>
-  <canvas id="starfield" class="starfield" aria-hidden="true"></canvas>
 
   <!-- @gen:topbar -->
   <header class="topbar">
-    <a class="brand" href="index.html" aria-label="Home">
-      <span class="brand-dot"></span>
-      <span class="brand-title">PROTEEK <span class="muted">//</span> PORTFOLIO</span>
-      <span class="brand-sub">Data · AI · Automation · Analytics</span>
+    <a class="brand" href="index.html" aria-label="Proteek, home">
+      <span class="brand-title">Proteek</span>
     </a>
-    <div class="top-actions">
+    <nav class="top-actions" aria-label="Site">
       <a class="btn" href="assets/Proteek_Sanyal_Resume.pdf" target="_blank" rel="noopener">Resume</a>
-    </div>
+    </nav>
   </header>
   <!-- @end -->
 

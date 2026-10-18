@@ -28,28 +28,28 @@
       "label": "Visitor",
       "file": "visitor.html",
       "subtitle": "The short version",
-      "accent": "rgba(120,255,210,.92)"
+      "accent": { "light": "#00796b", "dark": "rgba(120,255,210,.92)" }
     },
     {
       "id": "recruiter",
       "label": "Recruiter",
       "file": "recruiter.html",
       "subtitle": "The 30-second read",
-      "accent": "rgba(130,170,255,.92)"
+      "accent": { "light": "#0066cc", "dark": "rgba(130,170,255,.92)" }
     },
     {
       "id": "partner",
       "label": "Partner",
       "file": "partner.html",
       "subtitle": "Case studies and how I work",
-      "accent": "rgba(255,190,110,.92)"
+      "accent": { "light": "#b04f00", "dark": "rgba(255,190,110,.92)" }
     },
     {
       "id": "ask",
       "label": "Ask Me",
       "file": "ask.html",
       "subtitle": "Questions, answered from my CV",
-      "accent": "rgba(180,120,255,.92)"
+      "accent": { "light": "#8e44ad", "dark": "rgba(180,120,255,.92)" }
     }
   ],
   "roles": [

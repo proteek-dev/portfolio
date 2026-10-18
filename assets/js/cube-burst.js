@@ -62,12 +62,13 @@ const VERT = `
   }`;
 const FRAG = `
   uniform vec3 uColor;
+  uniform vec3 uEdge;
   uniform float uFade;
   varying vec2 vUv;
   void main() {
     float e = min(min(vUv.x, 1.0 - vUv.x), min(vUv.y, 1.0 - vUv.y));
     float edge = 1.0 - smoothstep(0.035, 0.075, e);
-    vec3 c = mix(uColor, vec3(1.0), edge * 0.75);
+    vec3 c = mix(uColor, uEdge, edge * 0.75);
     float a = mix(0.34, 0.8, edge);
     gl_FragColor = vec4(c, a * uFade);
   }`;
@@ -82,9 +83,11 @@ export function dispose() {
   stage = null;
 }
 
-/* opts: { cubeEl, accent, face, n, scale, duration }
+/* opts: { cubeEl, accent, edge, face, n, scale, duration }
+   accent is an rgb()/rgba() string; edge is "r, g, b" (the --fx-edge token):
+   white edges on the dark theme, dark edges on the light one.
    Starts the burst now; the caller handles the CSS cube, warp and navigation. */
-export function play({ cubeEl, accent, face = "front", n = 4, scale = 1, duration = 400 }) {
+export function play({ cubeEl, accent, edge = "255, 255, 255", face = "front", n = 4, scale = 1, duration = 400 }) {
   dispose();
   const W = window.innerWidth, H = window.innerHeight;
 
@@ -106,9 +109,14 @@ export function play({ cubeEl, accent, face = "front", n = 4, scale = 1, duratio
   const cell = size / n;
   const geometry = new THREE.BoxGeometry(1, 1, 1);
   const { rgb } = parseColour(accent);
+  const ink = edge.split(",").map(v => Number(v) / 255);
   const material = new THREE.ShaderMaterial({
     vertexShader: VERT, fragmentShader: FRAG, transparent: true, depthWrite: false,
-    uniforms: { uColor: { value: new THREE.Color(rgb[0] / 255, rgb[1] / 255, rgb[2] / 255) }, uFade: { value: 1 } },
+    uniforms: {
+      uColor: { value: new THREE.Color(rgb[0] / 255, rgb[1] / 255, rgb[2] / 255) },
+      uEdge: { value: new THREE.Color(ink[0], ink[1], ink[2]) },
+      uFade: { value: 1 },
+    },
   });
   const count = n * n * n;
   const mesh = new THREE.InstancedMesh(geometry, material, count);
